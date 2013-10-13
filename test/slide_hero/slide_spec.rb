@@ -21,6 +21,21 @@ module SlideHero
         slide = Slide.new("To Markup!")
         slide.compile.must_equal "<section><h1>To Markup!</h1></section>"
       end
+
+      it "respects headline size" do
+        slide = Slide.new("To Markup!", headline_size: :medium)
+        slide.compile.must_equal "<section><h2>To Markup!</h2></section>"
+      end
+    end
+
+    describe "block syntax" do
+      it "embeds text in p tags by default" do
+        slide = Slide.new "Embedding" do
+          point "I'm embedded!"
+        end
+
+        slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p></section>"
+      end
     end
   end
 end
