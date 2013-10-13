@@ -36,6 +36,23 @@ module SlideHero
 
         slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p></section>"
       end
+
+      it "embeds raw html" do
+        slide = Slide.new "Embedding" do
+          point "<small>I'm embedded!</small>"
+        end
+
+        slide.compile.must_equal "<section><h1>Embedding</h1><p><small>I'm embedded!</small></p></section>"
+      end
+
+      it "embeds multiple points" do
+        slide = Slide.new "Embedding" do
+          point "I'm embedded!"
+          point "Me too!"
+        end
+
+        slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p><p>Me too!</p></section>"
+      end
     end
   end
 end

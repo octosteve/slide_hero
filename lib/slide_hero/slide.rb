@@ -8,15 +8,22 @@ module SlideHero
     end
 
     def compile
-      if @point
-        "<section><#{size_to_markup}>#{headline}</#{size_to_markup}><p>#{@point}</p></section>"
-      else
-        "<section><#{size_to_markup}>#{headline}</#{size_to_markup}></section>"
-      end
+      "<section>" +
+        "<#{size_to_markup}>#{headline}</#{size_to_markup}>" +
+        "#{collected_points}" +
+      "</section>"
     end
 
     def point(text)
-      @point = text
+      points << Point.new(text).compile
+    end
+
+    def collected_points
+      points.inject(:+)
+    end
+
+    def points
+      @points ||= []
     end
 
     private
