@@ -20,12 +20,24 @@ module SlideHero
     describe "compilation" do
       it "outputs object to html" do
         slide = Slide.new("To Markup!")
-        slide.compile.must_equal "<section><h1>To Markup!</h1></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>To Markup!</h1>" +
+          "</section>"
       end
 
       it "respects headline size" do
         slide = Slide.new("To Markup!", headline_size: :medium)
-        slide.compile.must_equal "<section><h2>To Markup!</h2></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h2>To Markup!</h2>" +
+          "</section>"
+      end
+
+      it "takes transitions" do
+        slide = Slide.new("transitions", transition: :zoom) do
+        end
+        slide.compile.must_equal '<section data-transition="zoom">' +
+        '<h1>transitions</h1>' +
+        '</section>'
       end
     end
 
@@ -35,7 +47,10 @@ module SlideHero
           point "I'm embedded!"
         end
 
-        slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Embedding</h1>" +
+          "<p>I'm embedded!</p>" +
+          "</section>"
       end
 
       it "embeds raw html" do
@@ -43,7 +58,10 @@ module SlideHero
           point "<small>I'm embedded!</small>"
         end
 
-        slide.compile.must_equal "<section><h1>Embedding</h1><p><small>I'm embedded!</small></p></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Embedding</h1>" + 
+          "<p><small>I'm embedded!</small></p>" +
+          "</section>"
       end
 
       it "embeds multiple points" do
@@ -52,7 +70,11 @@ module SlideHero
           point "Me too!"
         end
 
-        slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p><p>Me too!</p></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Embedding</h1>" + 
+          "<p>I'm embedded!</p>" +
+          "<p>Me too!</p>" +
+          "</section>"
       end
     end
 
@@ -64,7 +86,13 @@ module SlideHero
             point "Another Point"
           end
         end
-        slide.compile.must_equal "<section><h1>Lists</h1><ul><li>Bullet Points</li><li>Another Point</li></ul></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Lists</h1>" +
+          "<ul>" +
+          "<li>Bullet Points</li>" +
+          "<li>Another Point</li>" +
+          "</ul>" +
+          "</section>"
       end
 
       it "creates ordered lists from a block" do
@@ -74,7 +102,13 @@ module SlideHero
             point "Also ordered!"
           end
         end
-        slide.compile.must_equal "<section><h1>Lists</h1><ol><li>Ordered!</li><li>Also ordered!</li></ol></section>"
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Lists</h1>" +
+          "<ol>" +
+          "<li>Ordered!</li>" +
+          "<li>Also ordered!</li>" +
+          "</ol>" +
+          "</section>"
       end
     end
   end

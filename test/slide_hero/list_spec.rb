@@ -1,12 +1,49 @@
 require 'minitest_helper'
 
-describe List do
-  it "takes a block of items to list" do
-    list = List.new do 
-      point "A thing"
-      point "another"
+module SlideHero
+  describe List do
+    it "takes a block of items to list" do
+      list = List.new do 
+        point "A thing"
+        point "another"
+      end
+
+      list.compile.must_equal '<ul><li>A thing</li><li>another</li></ul>'
     end
 
-    list.compile.must_equal '<ul><li>A thing</li><li>another</li></ul>'
+    it "returns an ordered list" do
+      list = List.new(:ordered) do 
+        point "A thing"
+        point "another"
+      end
+
+      list.compile.must_equal '<ol><li>A thing</li><li>another</li></ol>'
+    end
+
+    it "supports animations" do
+      list = List.new do
+        point "animated!", animation: true
+      end
+      list.compile.must_equal '<ul>' +
+        '<li class="fragment ">' +
+        'animated!' + 
+        '</li>' +
+        '</ul>'
+    end
+
+    it "supports specific animations" do
+      supported_animations = %w{grow shrink roll-in fade-out 
+      highlight-red highlight-green highlight-blue}
+      supported_animations.each do |animation|
+        list = List.new do
+          point "all the animations!", animation: animation
+        end
+      list.compile.must_equal '<ul>' +
+        "<li class=\"fragment #{animation}\">" +
+        'all the animations!' + 
+        '</li>' +
+        '</ul>'
+      end
+    end
   end
 end
