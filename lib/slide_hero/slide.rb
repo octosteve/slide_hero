@@ -18,6 +18,10 @@ module SlideHero
       points << Point.new(text).compile
     end
 
+    def list(&block)
+      points << List.new(&block).compile
+    end
+
     def collected_points
       points.inject(:+)
     end

@@ -1,4 +1,5 @@
 require 'minitest_helper'
+
 module SlideHero
   describe Slide do
     describe "initialization" do
@@ -28,7 +29,7 @@ module SlideHero
       end
     end
 
-    describe "block syntax" do
+    describe "#point syntax" do
       it "embeds text in p tags by default" do
         slide = Slide.new "Embedding" do
           point "I'm embedded!"
@@ -52,6 +53,18 @@ module SlideHero
         end
 
         slide.compile.must_equal "<section><h1>Embedding</h1><p>I'm embedded!</p><p>Me too!</p></section>"
+      end
+    end
+
+    describe "#list" do
+      it "creates bullets from a block" do
+        slide = Slide.new "Lists" do
+          list do
+            point "Bullet Points"
+            point "Another Point"
+          end
+        end
+        slide.compile.must_equal "<section><h1>Lists</h1><ul><li>Bullet Points</li><li>Another Point</li></ul></section>"
       end
     end
   end
