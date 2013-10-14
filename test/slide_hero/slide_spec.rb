@@ -66,6 +66,16 @@ module SlideHero
         end
         slide.compile.must_equal "<section><h1>Lists</h1><ul><li>Bullet Points</li><li>Another Point</li></ul></section>"
       end
+
+      it "creates ordered lists from a block" do
+        slide = Slide.new "Lists" do
+          list(:ordered) do
+            point "Ordered!"
+            point "Also ordered!"
+          end
+        end
+        slide.compile.must_equal "<section><h1>Lists</h1><ol><li>Ordered!</li><li>Also ordered!</li></ol></section>"
+      end
     end
   end
 end

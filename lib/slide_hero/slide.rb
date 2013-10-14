@@ -18,8 +18,8 @@ module SlideHero
       points << Point.new(text).compile
     end
 
-    def list(&block)
-      points << List.new(&block).compile
+    def list(style=:unordered, &block)
+      points << List.new(style, &block).compile
     end
 
     def collected_points

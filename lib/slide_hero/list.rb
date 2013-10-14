@@ -1,12 +1,14 @@
 class List
-  def initialize(&block)
+  attr_reader :style
+  def initialize(style=:unordered, &block)
+    @style = style == :unordered ? :ul : :ol
     instance_eval(&block)
   end
 
   def compile
-    "<ul>" +
+    "<#{style}>" +
       @points.inject(:+) +
-    "</ul>"
+    "</#{style}>"
   end
 
   def point(text)
