@@ -6,7 +6,7 @@ module SlideHero
       @source = code.to_source(:strip_enclosure => true)
     end
 
-    def compiled
+    def compile
       "<pre><code>
         #{@source}
       </code></pre>"

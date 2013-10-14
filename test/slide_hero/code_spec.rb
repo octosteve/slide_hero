@@ -12,10 +12,9 @@ module SlideHero
         end
       end
       
-      code.compiled.must_equal  '<pre><code>
+      code.compile.must_equal  '<pre><code>
         class Show
   attr_accessor(:name)
-  
   def initialize(name)
     @name = name
   end

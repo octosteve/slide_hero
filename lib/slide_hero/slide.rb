@@ -23,6 +23,10 @@ module SlideHero
       points << List.new(style, &block).compile
     end
 
+    def code(language, &code)
+      points << Code.new(language, &code).compile
+    end
+
     def collected_points
       points.inject(:+)
     end

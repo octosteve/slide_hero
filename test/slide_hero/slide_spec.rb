@@ -36,8 +36,8 @@ module SlideHero
         slide = Slide.new("transitions", transition: :zoom) do
         end
         slide.compile.must_equal '<section data-transition="zoom">' +
-        '<h1>transitions</h1>' +
-        '</section>'
+          '<h1>transitions</h1>' +
+          '</section>'
       end
     end
 
@@ -109,6 +109,25 @@ module SlideHero
           "<li>Also ordered!</li>" +
           "</ol>" +
           "</section>"
+      end
+    end
+    describe "#code" do
+      it "embeds code in a slide" do
+        slide = Slide.new "Code" do
+          code(:ruby) do
+            def working
+              "woot!"
+            end
+          end
+        end
+
+        slide.compile.must_equal "<section data-transition=\"default\">" +
+          "<h1>Code</h1>" +
+          "<pre><code>
+        def working
+  \"woot!\"
+end
+      </code></pre></section>"
       end
     end
   end
