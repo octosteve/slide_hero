@@ -21,5 +21,9 @@ module SlideHero
 end
       </code></pre>'
    end
+
+    it "rejects code that's not ruby" do
+    proc { Code.new(:python) {} }.must_raise SystemExit
+    end
   end
 end
