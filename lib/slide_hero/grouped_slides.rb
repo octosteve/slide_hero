@@ -5,7 +5,7 @@ module SlideHero
     end
 
     def compile
-      "<section>#{slides.inject(:+)}</section>"
+      "<section>#{slides.join}</section>"
     end
 
     def slide(headline, &block)

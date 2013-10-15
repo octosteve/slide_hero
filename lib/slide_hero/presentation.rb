@@ -23,7 +23,7 @@ module SlideHero
     end
 
     def collected_slides
-      slides.inject(:+)
+      slides.join
     end
 
     def slides

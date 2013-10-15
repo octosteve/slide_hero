@@ -11,7 +11,7 @@ module SlideHero
 
     def compile
       "<#{style_to_markup}>" +
-        @points.inject(:+) +
+        @points.join +
         "</#{style_to_markup}>"
     end
 
@@ -26,8 +26,9 @@ module SlideHero
 
     def style_to_markup
       { unordered: :ul,
-        ordered: :ol}[style]
+        ordered: :ol}[style] || :ul
     end
+
     private
     def animation_class
       if @animation
@@ -39,5 +40,4 @@ module SlideHero
       end
     end
   end
-
 end
