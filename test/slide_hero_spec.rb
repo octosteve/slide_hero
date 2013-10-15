@@ -4,6 +4,7 @@ require_relative 'slide_hero/point_spec'
 require_relative 'slide_hero/list_spec'
 require_relative 'slide_hero/grouped_slides_spec'
 require_relative 'slide_hero/code_spec'
+require_relative 'slide_hero/presentation_spec'
 
 describe ::SlideHero do
   it "has a version" do

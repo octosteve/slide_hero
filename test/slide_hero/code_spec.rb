@@ -23,7 +23,7 @@ end
    end
 
     it "rejects code that's not ruby" do
-    proc { Code.new(:python) {} }.must_raise SystemExit
+      proc { Code.new(:python) {} }.must_raise SystemExit
     end
   end
 end

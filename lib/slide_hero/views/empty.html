@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+  <%= partial 'header', locals: title: title %>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <%= yield %>
+      </div>
+    </div>
+    <%= partial 'footer' %>
+  </body>
+</html>
