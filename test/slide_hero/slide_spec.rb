@@ -124,10 +124,10 @@ module SlideHero
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
           "<h1>Code</h1>" +
           "<pre><code>
-        def working
+  def working
   \"woot!\"
 end
-      </code></pre></section>"
+</code></pre></section>"
       end
     end
   end

@@ -12,14 +12,14 @@ module SlideHero
         end
       end
       
-      code.compile.must_equal  '<pre><code>
-        class Show
+      code.compile.strip.must_equal  '<pre><code>
+  class Show
   attr_accessor(:name)
   def initialize(name)
     @name = name
   end
 end
-      </code></pre>'
+</code></pre>'
    end
 
     it "rejects code that's not ruby" do

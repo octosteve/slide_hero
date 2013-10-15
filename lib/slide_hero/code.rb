@@ -11,9 +11,7 @@ module SlideHero
     end
 
     def compile
-      "<pre><code>
-        #{@source}
-      </code></pre>"
+      Tilt::ERBTemplate.new('lib/slide_hero/views/code.html.erb').render(self)
     end
   end
 end
