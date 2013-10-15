@@ -41,7 +41,7 @@ module SlideHero
         end
       end
 
-      pres.compile.must_include "<section data-transition=\"default\"><h1>Nesting!</h1><p>Woot!</p></section>"
+      assert_dom_includes("<section data-transition=\"default\"><h1>Nesting!</h1><p>Woot!</p></section>", pres.compile)
     end
   end
 end

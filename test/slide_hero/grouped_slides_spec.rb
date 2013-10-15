@@ -13,7 +13,7 @@ module SlideHero
           end
         end
 
-        grouped_slides.compile.must_equal "<section>" +
+        assert_dom_match grouped_slides.compile, "<section>" +
           "<section data-transition=\"default\">" +
           "<h1>banana</h1>" +
           "<p>High in potassium</p>" +

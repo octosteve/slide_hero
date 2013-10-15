@@ -9,11 +9,7 @@ module SlideHero
     end
 
     def compile
-      #Tilt::ERBTemplate.new('lib/slide_hero/views/slide.html.erb').render(self)
-      "<section #{data_attributes}>" +
-        "<#{size_to_markup}>#{headline}</#{size_to_markup}>" +
-      "#{collected_points}" +
-        "</section>"
+      Tilt::ERBTemplate.new('lib/slide_hero/views/slide.html.erb').render(self)
     end
 
     def point(text)
