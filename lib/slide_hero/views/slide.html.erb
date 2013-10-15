@@ -1,4 +1,6 @@
 <section <%= data_attributes %>>
   <<%= size_to_markup %>><%= headline %></<%= size_to_markup %>>
-  <%= collected_points %>
+  <% points.each do |point| %>
+    <%= point %>
+  <% end %>
 </section>

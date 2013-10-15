@@ -1,8 +1,6 @@
 module SlideHero
   class List
     attr_reader :style
-    SUPPORTED_ANIMATIONS = %w{grow shrink roll-in fade-out 
-      highlight-red highlight-green highlight-blue}
 
     def initialize(style=:unordered, &block)
       @style = style 
@@ -10,34 +8,19 @@ module SlideHero
     end
 
     def compile
-      "<#{style_to_markup}>" +
-        @points.join +
-        "</#{style_to_markup}>"
+      if style == :unordered
+        Tilt::ERBTemplate.new('lib/slide_hero/views/unordered_list.html.erb').render(self)
+      else
+        Tilt::ERBTemplate.new('lib/slide_hero/views/ordered_list.html.erb').render(self)
+      end
     end
 
     def point(text, animation: nil)
-      @animation = animation
-      points << "<li#{animation_class}>#{text}</li>"
+      points << ListPoint.new(text, { animation: animation })
     end
 
     def points
       @points ||= []
-    end
-
-    def style_to_markup
-      { unordered: :ul,
-        ordered: :ol}[style] || :ul
-    end
-
-    private
-    def animation_class
-      if @animation
-        animation_markup = ' class="fragment ' 
-        if SUPPORTED_ANIMATIONS.include? @animation
-          animation_markup << @animation 
-        end
-        animation_markup + "\""
-      end
     end
   end
 end

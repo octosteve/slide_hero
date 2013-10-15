@@ -24,10 +24,6 @@ module SlideHero
       points << Code.new(language, &code).compile
     end
 
-    def collected_points
-      points.join
-    end
-
     def points
       @points ||= []
     end

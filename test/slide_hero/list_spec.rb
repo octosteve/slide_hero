@@ -8,7 +8,7 @@ module SlideHero
         point "another"
       end
 
-      list.compile.must_equal '<ul><li>A thing</li><li>another</li></ul>'
+      assert_dom_match(list.compile, '<ul><li>A thing</li><li>another</li></ul>')
     end
 
     it "returns an ordered list" do
@@ -17,18 +17,18 @@ module SlideHero
         point "another"
       end
 
-      list.compile.must_equal '<ol><li>A thing</li><li>another</li></ol>'
+      assert_dom_match(list.compile, '<ol><li>A thing</li><li>another</li></ol>')
     end
 
     it "supports animations" do
       list = List.new do
         point "animated!", animation: true
       end
-      list.compile.must_equal '<ul>' +
+      assert_dom_match(list.compile, '<ul>' +
         '<li class="fragment ">' +
         'animated!' + 
         '</li>' +
-        '</ul>'
+        '</ul>')
     end
 
     it "supports specific animations" do
@@ -38,7 +38,7 @@ module SlideHero
         list = List.new do
           point "all the animations!", animation: animation
         end
-      list.compile.must_equal '<ul>' +
+      assert_dom_match list.compile, '<ul>' +
         "<li class=\"fragment #{animation}\">" +
         'all the animations!' + 
         '</li>' +

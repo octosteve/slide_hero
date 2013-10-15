@@ -5,7 +5,7 @@ module SlideHero
     end
 
     def compile
-      "<section>#{slides.join}</section>"
+      Tilt::ERBTemplate.new('lib/slide_hero/views/grouped_slides.html.erb').render(self)
     end
 
     def slide(headline, &block)
