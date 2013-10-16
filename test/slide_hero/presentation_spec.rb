@@ -23,6 +23,15 @@ module SlideHero
       pres.slides.count.must_equal 1
     end
 
+    it "takes all of slide's options" do
+      pres = Presentation.new("slides") do
+        slide("My slide", headline_size: :small, transition: :default) do
+          point "Bananas are tastey"
+        end
+      end
+      pres.slides.count.must_equal 1
+    end
+
     it "takes grouped_slides" do
       pres = Presentation.new("slides") do
         grouped_slides do

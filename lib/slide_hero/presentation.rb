@@ -17,8 +17,8 @@ module SlideHero
       end
     end
 
-    def slide(title, &slide_block)
-      slides << Slide.new(title, &slide_block).compile
+    def slide(title, **kwargs, &slide_block)
+      slides << Slide.new(title, **kwargs, &slide_block).compile
     end
 
     def grouped_slides(&block)
