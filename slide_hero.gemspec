@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "sourcify", "~> 0.6.0.rc2"
   spec.add_dependency "tilt", "~> 1.4.1"
   spec.add_dependency "thor", "~> 0.18.1"
   spec.add_dependency "rack", "~> 1.5.2"

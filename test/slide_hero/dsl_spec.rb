@@ -11,5 +11,17 @@ module SlideHero
       end
       pres.must_include "Turtles are cool"
     end
+
+    it "passes code properly" do
+      pres = presentation "Code" do
+        slide "Code test" do
+          code(:ruby) do
+            "test/fixtures/testclass.rb"
+          end
+        end
+      end
+
+      pres.must_include "class Working"
+    end
   end
 end

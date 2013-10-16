@@ -1,13 +1,8 @@
 module SlideHero
-  require 'sourcify'
   class Code
-    SUPPORTED_LANGUAGES = [:ruby]
-    def initialize(language, &code)
-      unless SUPPORTED_LANGUAGES.include? language
-        abort "Unsupported language: #{language}" 
-      end
+    def initialize(language, &code_file)
       @language = language
-      @source = code.to_source(:strip_enclosure => true)
+      @source = File.read("#{Dir.pwd}/#{code_file.call}")
     end
 
     def compile

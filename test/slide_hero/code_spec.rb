@@ -4,26 +4,17 @@ module SlideHero
   describe Code do
     it "formats code properly" do
       code = Code.new(:ruby) do
-        class Show
-          attr_accessor :name
-          def initialize(name)
-            @name = name
-          end
-        end
+        "test/fixtures/testclass.rb"
       end
       
       code.compile.strip.must_equal  '<pre><code data-trim>
-  class Show
-  attr_accessor(:name)
-  def initialize(name)
-    @name = name
+  class Working
+  def some_method
+    "woot!"
   end
 end
+
 </code></pre>'
    end
-
-    it "rejects code that's not ruby" do
-      proc { Code.new(:python) {} }.must_raise SystemExit
-    end
   end
 end

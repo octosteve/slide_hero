@@ -127,18 +127,19 @@ module SlideHero
       it "embeds code in a slide" do
         slide = Slide.new "Code" do
           code(:ruby) do
-            def working
-              "woot!"
-            end
+            "test/fixtures/testclass.rb"
           end
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
           "<h1>Code</h1>" +
           "<pre><code data-trim>
-  def working
-  \"woot!\"
+  class Working
+  def some_method
+    \"woot!\"
+  end
 end
+
 </code></pre></section>"
       end
     end
