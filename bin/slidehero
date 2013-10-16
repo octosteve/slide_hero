@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'slide_hero'
+require 'thor'
+require 'fileutils'
+
+class PresentationGenerator < Thor
+  include Thor::Actions
+  desc "new NAME", "Create a new presentation"
+  def new(name)
+    template 'templates/new_presentation.tt', 'foozball.rb'
+    #FileUtils.mkdir name
+    #FileUtils.copy_file(File.expand_path(__dir__, '..', 'foo.rb'), 'banana.rb')
+  end
+end
+#puts File.expand_path(__dir__)
+PresentationGenerator.source_root(Gem.loaded_specs['slide_hero'].full_gem_path)
+PresentationGenerator.start ARGV
