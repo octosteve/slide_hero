@@ -3,6 +3,8 @@ module SlideHero
     def initialize(language, &code_file)
       @language = language
       @source = File.read("#{Dir.pwd}/#{code_file.call}")
+    rescue Errno::ENOENT 
+      abort "#{Dir.pwd}/#{code_file.call} not found"
     end
 
     def compile
