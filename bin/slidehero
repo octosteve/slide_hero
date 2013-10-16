@@ -14,7 +14,8 @@ class PresentationGenerator < Thor
 
   desc "compile PRESENTATION_NAME (defaults to presentation.rb", "Compile presentation"
   def compile(name = 'presentation.rb')
-    File.open('index.html', 'w+') do |f|
+    directory 'vendor/reveal.js', 'presentation'
+    File.open('presentation/index.html', 'w+') do |f|
       f.puts eval(File.read(name), SlideHero.get_binding)
     end
   end
