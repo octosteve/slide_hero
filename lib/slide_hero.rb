@@ -9,4 +9,7 @@ require_relative "slide_hero/presentation"
 require_relative "slide_hero/dsl"
 
 module SlideHero
+  def self.get_binding
+    binding
+  end
 end
