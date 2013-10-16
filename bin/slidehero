@@ -19,6 +19,18 @@ class PresentationGenerator < Thor
       f.puts eval(File.read(name), SlideHero.get_binding)
     end
   end
+
+  desc "serve FILENAME", "starts a server running your presentation on port 9292"
+  def serve(name = 'presentation.rb')
+    directory 'vendor/reveal.js', '.tmp'
+    File.open('.tmp/index.html', 'w+') do |f|
+      f.puts eval(File.read(name), SlideHero.get_binding)
+    end
+    puts "Go checkout your awesome presentation at http://localhost:9292!"
+    system("rackup #{Gem.loaded_specs['slide_hero'].full_gem_path}/config.ru")
+  rescue Interrupt
+    remove_dir '.tmp'
+  end
 end
 
 PresentationGenerator.source_root(Gem.loaded_specs['slide_hero'].full_gem_path)

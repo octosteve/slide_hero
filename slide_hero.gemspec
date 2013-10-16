@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sourcify", "~> 0.6.0.rc2"
   spec.add_dependency "tilt", "~> 1.4.1"
   spec.add_dependency "thor", "~> 0.18.1"
+  spec.add_dependency "rack", "~> 1.5.2"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest"
