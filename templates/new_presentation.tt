@@ -1,6 +1,6 @@
 require 'slide_hero'
 
-SlideHero::Presentation.new('<%= @name %>') do
+presentation '<%= @name %>' do
   slide "Presentations made easy!" do
     point "Make presentations at the speed of thought"
     point "Make ideas pop", animation: "grow"

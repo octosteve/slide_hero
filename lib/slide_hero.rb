@@ -6,6 +6,7 @@ require_relative "slide_hero/list_point"
 require_relative "slide_hero/grouped_slides"
 require_relative "slide_hero/code"
 require_relative "slide_hero/presentation"
+require_relative "slide_hero/dsl"
 
 module SlideHero
 end
