@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "slide_hero"
   spec.version       = SlideHero::VERSION
   spec.authors       = ["Steven Nunez"]
-  spec.email         = ["snunez@cyrusinnovation.com"]
+  spec.email         = ["steven.nunez@gmail.com"]
   spec.description   = %q{Used for creating slide decks backed by reveal.js}
   spec.summary       = %q{Used for creating slide decks backed by reveal.js}
   spec.homepage      = ""
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "sourcify", "~> 0.6.0.rc2"
   spec.add_dependency "tilt", "~> 1.4.1"
+  spec.add_dependency "thor", "~> 0.18.1"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest"
