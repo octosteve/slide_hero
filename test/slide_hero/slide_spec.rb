@@ -76,6 +76,18 @@ module SlideHero
           "<p>Me too!</p>" +
           "</section>"
       end
+
+      it "animates points" do
+        slide = Slide.new "Animation" do
+          point "I'm animated!", animation: true
+        end
+
+        assert_dom_match slide.compile, "<section data-transition=\"default\">"+
+          "<h1>Animation</h1>" + 
+          "<p>I'm animated!</p>" +
+          "</section>"
+
+      end
     end
 
     describe "#list" do
@@ -123,7 +135,7 @@ module SlideHero
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
           "<h1>Code</h1>" +
-          "<pre><code>
+          "<pre><code data-trim>
   def working
   \"woot!\"
 end

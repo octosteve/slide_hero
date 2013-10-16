@@ -12,7 +12,7 @@ module SlideHero
         end
       end
       
-      code.compile.strip.must_equal  '<pre><code>
+      code.compile.strip.must_equal  '<pre><code data-trim>
   class Show
   attr_accessor(:name)
   def initialize(name)

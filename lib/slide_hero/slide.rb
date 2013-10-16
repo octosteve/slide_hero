@@ -12,8 +12,8 @@ module SlideHero
       Tilt::ERBTemplate.new('lib/slide_hero/views/slide.html.erb').render(self)
     end
 
-    def point(text)
-      points << Point.new(text).compile
+    def point(text, animation: nil)
+      points << Point.new(text, animation: nil).compile
     end
 
     def list(style=:unordered, &block)
