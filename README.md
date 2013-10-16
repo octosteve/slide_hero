@@ -124,6 +124,18 @@ The DSL for SlideHero was created to add expressibility to creating slides.
 `#list` must be nested in a slide. It takes an optional argument of :ordered to 
 create an ordered list. List items are added by the `#point` method.
 
+**code**
+
+    presentation "My Presentation" do
+      slide "A slide" do
+        code(:ruby) do
+          "working_code.rb"  
+        end
+      end
+    end
+    
+`#code` must be nested in a slide. It loads any code file in the same directory as the file. 
+
 #### Animation
 
 Animation for points are supported.
