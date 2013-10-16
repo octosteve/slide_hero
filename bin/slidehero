@@ -8,9 +8,8 @@ class PresentationGenerator < Thor
   include Thor::Actions
   desc "new NAME", "Create a new presentation"
   def new(name)
-    template 'templates/new_presentation.tt', 'foozball.rb'
-    #FileUtils.mkdir name
-    #FileUtils.copy_file(File.expand_path(__dir__, '..', 'foo.rb'), 'banana.rb')
+    @name = name
+    template 'templates/new_presentation.tt', "#{name}/presentation.rb"
   end
 end
 #puts File.expand_path(__dir__)
