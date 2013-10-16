@@ -11,7 +11,14 @@ class PresentationGenerator < Thor
     @name = name
     template 'templates/new_presentation.tt', "#{name}/presentation.rb"
   end
+
+  desc "compile PRESENTATION_NAME (defaults to presentation.rb", "Compile presentation"
+  def compile(name = 'presentation.rb')
+    File.open('index.html', 'w+') do |f|
+      f.puts eval(File.read(name))
+    end
+  end
 end
-#puts File.expand_path(__dir__)
+
 PresentationGenerator.source_root(Gem.loaded_specs['slide_hero'].full_gem_path)
 PresentationGenerator.start ARGV
