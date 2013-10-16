@@ -5,7 +5,9 @@ module SlideHero
     end
 
     def compile
-      Tilt::ERBTemplate.new('lib/slide_hero/views/grouped_slides.html.erb').render(self)
+      Tilt::ERBTemplate.
+        new(File.join(Gem.loaded_specs['slide_hero'].full_gem_path, 
+                      'lib/slide_hero/views/grouped_slides.html.erb')).render(self)
     end
 
     def slide(headline, &block)

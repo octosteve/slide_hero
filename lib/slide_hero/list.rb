@@ -8,10 +8,13 @@ module SlideHero
     end
 
     def compile
+      gem_path = Gem.loaded_specs['slide_hero'].full_gem_path
       if style == :unordered
-        Tilt::ERBTemplate.new('lib/slide_hero/views/unordered_list.html.erb').render(self)
+        Tilt::ERBTemplate.new(File.join(gem_path, 
+                                        'lib/slide_hero/views/unordered_list.html.erb')).render(self)
       else
-        Tilt::ERBTemplate.new('lib/slide_hero/views/ordered_list.html.erb').render(self)
+        Tilt::ERBTemplate.new(File.join(gem_path, 
+                                        'lib/slide_hero/views/ordered_list.html.erb')).render(self)
       end
     end
 

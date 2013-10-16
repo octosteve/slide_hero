@@ -9,7 +9,10 @@ module SlideHero
     end
 
     def compile
-      Tilt::ERBTemplate.new('lib/slide_hero/views/layout.html.erb').render(self) do 
+      gem_path = Gem.loaded_specs['slide_hero'].full_gem_path
+      Tilt::ERBTemplate.new(File.join(gem_path, 
+                                      'lib/slide_hero/views/layout.html.erb')).
+                                      render(self) do 
         collected_slides
       end
     end
