@@ -84,7 +84,7 @@ module SlideHero
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">"+
           "<h1>Animation</h1>" + 
-          "<p>I'm animated!</p>" +
+          "<p class=\"fragment \">I'm animated!</p>" +
           "</section>"
 
       end
