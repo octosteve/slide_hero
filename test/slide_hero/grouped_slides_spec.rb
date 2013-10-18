@@ -24,6 +24,17 @@ module SlideHero
           "</section>" +
           "</section>" 
       end
+
+      it "takes all arguments slide handles" do
+        grouped_slides = GroupedSlides.new do
+          slide "Title", headline_size: :medium, transition: :zoom do
+            point "Made one"
+          end
+        end
+
+        grouped_slides.compile.must_include "transition"
+        grouped_slides.compile.must_include "h2"
+      end
     end
   end
 end

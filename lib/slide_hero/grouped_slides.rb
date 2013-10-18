@@ -10,8 +10,8 @@ module SlideHero
                       'lib/slide_hero/views/grouped_slides.html.erb')).render(self)
     end
 
-    def slide(headline, &block)
-      slides << Slide.new(headline, &block).compile
+    def slide(headline, **kwargs, &block)
+      slides << Slide.new(headline, **kwargs, &block).compile
     end
 
     def slides
