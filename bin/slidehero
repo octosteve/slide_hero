@@ -10,11 +10,13 @@ class PresentationGenerator < Thor
   def new(name)
     @name = name
     template 'templates/new_presentation.tt', "#{name}/presentation.rb"
+    empty_directory "#{name}/images"
   end
 
   desc "compile PRESENTATION_NAME (defaults to presentation.rb", "Compile presentation"
   def compile(name = 'presentation.rb')
     directory 'vendor/reveal.js', 'presentation'
+    FileUtils.cp_r(File.dirname(File.realdirpath(name)) + '/images', 'presentation/images')
     File.open('presentation/index.html', 'w+') do |f|
       f.puts eval(File.read(name), SlideHero.get_binding)
     end
