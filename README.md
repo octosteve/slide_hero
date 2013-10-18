@@ -146,6 +146,17 @@ create an ordered list. List items are added by the `#point` method.
     
 `#note` must be nested in a slide. These will show up on speaker's notes.
 
+**image**
+
+    presentation "My Presentation" do
+      slide "A slide" do
+        image "chunky_bacon.png"
+      end
+    end
+    
+`#image` must be nested in a slide. All images in the images folder will be ported over on compilation. Use the name of the image, with out the 'images' subfolder
+In this example, it will load an image named 'chunky_bacon.png in the images folder.
+
 #### Animation
 
 Animation for points are supported.

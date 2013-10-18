@@ -146,14 +146,23 @@ end
 
     describe "#note" do
       it "returns a formatted note" do
-      slide = Slide.new "Note" do
-        note "Don't forget to bring a towel"
+        slide = Slide.new "Note" do
+          note "Don't forget to bring a towel"
+        end
+        assert_dom_match slide.compile, "<section data-transition=\"default\">" +
+          "<h1>Note</h1>" +
+          "<aside class=\"notes\">Don't forget to bring a towel</aside>" +
+          "</section>"
       end
-      assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-      "<h1>Note</h1>" +
-      "<aside class=\"notes\">Don't forget to bring a towel</aside>" +
-      "</section>"
+    end
+    describe "#image" do
+      it "returns a formatted Image" do
+        slide = Slide.new "Image" do
+          image("cornify.gif", "Unicorn", width: 280, height: 326)
+        end
+
+        slide.compile.must_include %{<img width="280" height="326" src="images/cornify.gif" alt="Unicorn">}
+      end
     end
   end
-end
 end

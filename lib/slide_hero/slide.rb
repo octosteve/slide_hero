@@ -35,6 +35,10 @@ module SlideHero
       points << Note.new(text).compile
     end
 
+    def image(*args, **kwargs)
+      points << Image.new(*args, **kwargs).compile
+    end
+
     private
     def size_to_markup
       { 
