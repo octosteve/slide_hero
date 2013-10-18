@@ -143,5 +143,17 @@ end
 </code></pre></section>"
       end
     end
+
+    describe "#note" do
+      it "returns a formatted note" do
+      slide = Slide.new "Note" do
+        note "Don't forget to bring a towel"
+      end
+      assert_dom_match slide.compile, "<section data-transition=\"default\">" +
+      "<h1>Note</h1>" +
+      "<aside class=\"notes\">Don't forget to bring a towel</aside>" +
+      "</section>"
+    end
   end
+end
 end

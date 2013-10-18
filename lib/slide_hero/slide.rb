@@ -31,6 +31,10 @@ module SlideHero
       @points ||= []
     end
 
+    def note(text)
+      points << Note.new(text).compile
+    end
+
     private
     def size_to_markup
       { 

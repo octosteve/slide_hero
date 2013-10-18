@@ -7,6 +7,7 @@ require_relative "slide_hero/grouped_slides"
 require_relative "slide_hero/code"
 require_relative "slide_hero/presentation"
 require_relative "slide_hero/dsl"
+require_relative "slide_hero/note"
 
 module SlideHero
   def self.get_binding

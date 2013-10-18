@@ -136,6 +136,16 @@ create an ordered list. List items are added by the `#point` method.
     
 `#code` must be nested in a slide. It loads any code file in the same directory as the file. 
 
+**note**
+
+    presentation "My Presentation" do
+      slide "A slide" do
+        note "Remind them to shower"
+      end
+    end
+    
+`#note` must be nested in a slide. These will show up on speaker's notes.
+
 #### Animation
 
 Animation for points are supported.
