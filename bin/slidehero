@@ -20,7 +20,7 @@ class PresentationGenerator < Thor
   end
 
   def move_slide_files(name, folder)
-    FileUtils.cp_r(File.dirname(File.realdirpath(name)) + '/images', "#{folder}/images")
+    FileUtils.cp_r(File.dirname(File.realdirpath(name)) + '/images', "#{folder}")
     File.open("#{folder}/index.html", 'w+') do |f|
       f.puts eval(File.read(name), SlideHero.get_binding)
     end
