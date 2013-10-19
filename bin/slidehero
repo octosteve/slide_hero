@@ -14,22 +14,37 @@ class PresentationGenerator < Thor
   end
 
   desc "compile PRESENTATION_NAME (defaults to presentation.rb", "Compile presentation"
-  def compile(name = 'presentation.rb')
-    directory 'vendor/reveal.js', 'presentation'
-    FileUtils.cp_r(File.dirname(File.realdirpath(name)) + '/images', 'presentation/images')
-    File.open('presentation/index.html', 'w+') do |f|
+  def compile(name = 'presentation.rb', folder="presentation")
+    directory 'vendor/reveal.js', folder
+    move_slide_files(name, folder)
+  end
+
+  def move_slide_files(name, folder)
+    FileUtils.cp_r(File.dirname(File.realdirpath(name)) + '/images', "#{folder}/images")
+    File.open("#{folder}/index.html", 'w+') do |f|
       f.puts eval(File.read(name), SlideHero.get_binding)
     end
   end
 
   desc "serve FILENAME", "starts a server running your presentation on port 9292"
   def serve(name = 'presentation.rb')
-    directory 'vendor/reveal.js', '.tmp'
-    File.open('.tmp/index.html', 'w+') do |f|
-      f.puts eval(File.read(name), SlideHero.get_binding)
-    end
+    compile(name, '.tmp')
     puts "Go checkout your awesome presentation at http://localhost:9292!"
-    system("rackup #{Gem.loaded_specs['slide_hero'].full_gem_path}/config.ru")
+
+    Thread.new do
+      system("rackup #{Gem.loaded_specs['slide_hero'].full_gem_path}/config.ru")
+    end
+
+    last_update = Time.now
+    loop do 
+      if File.mtime(name) > last_update
+        puts "File change noted!"
+        puts "Recompiling"
+        move_slide_files(name, '.tmp')
+        last_update = File.mtime(name)
+      end
+      sleep 1
+    end
   rescue Interrupt
     remove_dir '.tmp'
   end
