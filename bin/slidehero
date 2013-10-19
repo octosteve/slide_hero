@@ -45,10 +45,13 @@ class PresentationGenerator < Thor
       sleep 1
     end
 
-  rescue Interrupt
+    at_exit do
       Process.kill(9, rackupPid) rescue Errno::ESRCH
       remove_dir '.tmp'
-      exit 0                                                                      
+    end
+
+  rescue Interrupt
+    puts "GOING DOWN!"
   end
 end
 
