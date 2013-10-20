@@ -155,6 +155,7 @@ end
           "</section>"
       end
     end
+
     describe "#image" do
       it "returns a formatted Image" do
         slide = Slide.new "Image" do
@@ -162,6 +163,16 @@ end
         end
 
         slide.compile.must_include %{<img width="280" height="326" src="images/cornify.gif" alt="Unicorn">}
+      end
+    end
+
+    describe "#media" do
+      it "returns a formatted media element" do
+        slide = Slide.new "Video" do
+          media "http://www.youtube.com/watch?v=dQw4w9WgXcQ", type: :video
+        end
+
+        slide.compile.must_include %{<video data-autoplay src="http://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>}
       end
     end
   end

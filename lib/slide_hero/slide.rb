@@ -39,6 +39,10 @@ module SlideHero
       points << Image.new(*args, **kwargs).compile
     end
 
+    def media(*args, **kwargs)
+      points << Media.new(*args, **kwargs).compile
+    end
+
     private
     def size_to_markup
       { 
