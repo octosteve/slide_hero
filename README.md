@@ -157,6 +157,20 @@ create an ordered list. List items are added by the `#point` method.
 `#image` must be nested in a slide. All images in the images folder will be ported over on compilation. Use the name of the image, with out the 'images' subfolder
 In this example, it will load an image named 'chunky_bacon.png in the images folder.
 
+**media**
+
+    presentation "My Presentation" do
+      slide "A slide with video" do
+        media "http://www.youtube.com/watch?v=dQw4w9WgXcQ", type: video
+      end
+
+      slide "A slide with video" do
+        media "http://example.com/audio.mp3", type: audio
+      end
+    end
+    
+`#media` must be nested in a slide. This will create an auto playing video or audio element on the slide.
+
 #### Animation
 
 Animation for points are supported.
