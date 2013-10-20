@@ -23,6 +23,17 @@ module SlideHero
       pres.slides.count.must_equal 1
     end
 
+    it "adds defaults to slides" do
+      pres = Presentation.new("slides with defaults") do
+        defaults headline_size: :small
+
+        slide "My slide" do
+          point "an amazing point"
+        end
+      end
+      pres.slides.first.must_include "h3"
+    end
+
     it "takes all of slide's options" do
       pres = Presentation.new("slides") do
         slide("My slide", headline_size: :small, transition: :default) do
@@ -30,6 +41,17 @@ module SlideHero
         end
       end
       pres.slides.count.must_equal 1
+    end
+
+    it "overrides slide's defaults" do
+      pres = Presentation.new("slides") do
+        defaults headline_size: :medium
+
+        slide("My slide", headline_size: :small, transition: :default) do
+          point "Bananas are tastey"
+        end
+      end
+      pres.slides.first.must_include "h3"
     end
 
     it "takes grouped_slides" do
