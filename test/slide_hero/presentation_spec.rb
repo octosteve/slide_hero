@@ -25,7 +25,7 @@ module SlideHero
 
     it "adds defaults to slides" do
       pres = Presentation.new("slides with defaults") do
-        default headline_size: :small
+        defaults headline_size: :small
 
         slide "My slide" do
           point "an amazing point"
@@ -45,7 +45,7 @@ module SlideHero
 
     it "overrides slide's defaults" do
       pres = Presentation.new("slides") do
-        default headline_size: :medium
+        defaults headline_size: :medium
 
         slide("My slide", headline_size: :small, transition: :default) do
           point "Bananas are tastey"

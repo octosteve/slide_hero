@@ -5,7 +5,7 @@ module SlideHero
     attr_reader :title
     def initialize(title, &block)
       @title = title
-      @slide_default = {}
+      @slide_defaults = {}
       instance_eval(&block)
     end
 
@@ -18,12 +18,12 @@ module SlideHero
       end
     end
 
-    def default(args)
-      @slide_default = args
+    def defaults(args)
+      @slide_defaults = args
     end
 
     def slide(title, **kwargs, &slide_block)
-      slides << Slide.new(title, @slide_default.merge(**kwargs), &slide_block).compile
+      slides << Slide.new(title, @slide_defaults.merge(**kwargs), &slide_block).compile
     end
 
     def grouped_slides(&block)
