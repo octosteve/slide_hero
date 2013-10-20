@@ -87,11 +87,11 @@ presentation "My Presentation" do
   end
 end
 ```
-**default**
+**defaults**
 
 ```ruby
 presentation "My Presentation" do
-  default headline_size: :medium, transition: :fade
+  defaults headline_size: :medium, transition: :fade
   
   slide "A slide" do
     #…
@@ -103,7 +103,7 @@ presentation "My Presentation" do
 end
 ```
 
-You can set slide defaults for `headline_size` or `transition` by using `#default`. A slide default applies to all slides unless an individual slide overrides it.
+You can set slide defaults for `headline_size` or `transition` by using `#defaults`. A slide default applies to all slides unless an individual slide overrides it.
 
 **points**
 
