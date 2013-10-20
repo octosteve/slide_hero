@@ -1,5 +1,6 @@
 module SlideHero
   class Code
+    attr_reader :language, :source
     def initialize(language, &code_file)
       @language = language
       @source = File.read("#{Dir.pwd}/#{code_file.call}")

@@ -133,7 +133,7 @@ module SlideHero
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
           "<h1>Code</h1>" +
-          "<pre><code data-trim>
+          "<pre><code data-trim class=\"ruby\">
   class Working
   def some_method
     \"woot!\"
