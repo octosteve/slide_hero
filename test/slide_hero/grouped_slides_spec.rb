@@ -36,5 +36,12 @@ module SlideHero
         grouped_slides.compile.must_include "h2"
       end
     end
+
+    it "can have defaults passed in" do
+      grouped_slides = GroupedSlides.new(headline_size: :medium) do
+        slide "Title" 
+      end
+      grouped_slides.compile.must_include "<h2>Title</h2>"
+    end
   end
 end

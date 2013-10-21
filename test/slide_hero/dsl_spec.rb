@@ -23,5 +23,16 @@ module SlideHero
 
       pres.must_include "class Working"
     end
+    it "handles defaults properly" do
+      pres = presentation "Defaults" do
+        defaults headline_size: :medium
+        slide "Outer Slide"
+        grouped_slides do
+          slide "Inner Slide"
+        end
+      end
+      pres.must_include "<h2>Outer Slide</h2>"
+      pres.must_include "<h2>Inner Slide</h2>"
+    end
   end
 end

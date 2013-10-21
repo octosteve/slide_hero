@@ -27,7 +27,7 @@ module SlideHero
     end
 
     def grouped_slides(&block)
-      slides << GroupedSlides.new(&block).compile
+      slides << GroupedSlides.new(@slide_defaults, &block).compile
     end
 
     def collected_slides
