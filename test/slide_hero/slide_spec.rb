@@ -126,8 +126,8 @@ module SlideHero
     describe "#code" do
       it "embeds code in a slide" do
         slide = Slide.new "Code" do
-          code(:ruby) do
-            "test/fixtures/testclass.rb"
+          code(:ruby, File.join(Dir.pwd,"test","fixtures")) do
+            "testclass.rb"
           end
         end
 

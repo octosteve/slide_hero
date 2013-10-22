@@ -15,8 +15,8 @@ module SlideHero
     it "passes code properly" do
       pres = presentation "Code" do
         slide "Code test" do
-          code(:ruby) do
-            "test/fixtures/testclass.rb"
+          code(:ruby, File.join(Dir.pwd,"test","fixtures")) do
+            "testclass.rb"
           end
         end
       end

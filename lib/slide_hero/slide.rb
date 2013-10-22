@@ -23,8 +23,8 @@ module SlideHero
       points << List.new(style, &block).compile
     end
 
-    def code(language, &code)
-      points << Code.new(language, &code).compile
+    def code(*args, &code)
+      points << Code.new(*args, &code).compile
     end
 
     def points

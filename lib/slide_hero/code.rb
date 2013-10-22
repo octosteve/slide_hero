@@ -1,9 +1,10 @@
 module SlideHero
   class Code
-    attr_reader :language, :source
-    def initialize(language, &code_file)
+    attr_reader :language, :source, :location
+    def initialize(language, code_path=Dir.pwd, &code_file)
       @language = language
-      @source = File.read("#{Dir.pwd}/#{code_file.call}")
+      @location = "#{code_path}/code/#{code_file.call}"
+      @source = File.read(location)
     rescue Errno::ENOENT 
       abort "#{Dir.pwd}/#{code_file.call} not found"
     end

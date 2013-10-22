@@ -167,7 +167,9 @@ end
 ```
     
 `#code` must be nested in a slide. It loads any code file in the same directory as the file. 
-The language passed as an argument will be embedded in the markup. All supported languages can be found on the [Highlight.js Page](http://softwaremaniacs.org/media/soft/highlight/test.html)
+The language passed as an argument will be embedded in the markup. 
+code must be in the `code` folder. An optional second argument of a base location can be passed into the code method. Your folder must also have a `code` folder.
+All supported languages can be found on the [Highlight.js Page](http://softwaremaniacs.org/media/soft/highlight/test.html)
 
 **note**
 
