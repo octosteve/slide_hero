@@ -7,7 +7,7 @@ module SlideHero
     end
 
     def compile
-      %{<#{type} data-autoplay src="#{url}"></#{type}>}
+      %{<#{type} data-autoplay src="#{type}/#{url}"></#{type}>}
     end
   end
 end

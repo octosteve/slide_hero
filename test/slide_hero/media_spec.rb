@@ -12,15 +12,15 @@ module SlideHero
 
     describe "video type" do
       it "compiles to html fragment" do
-        media = Media.new("http://www.youtube.com/watch?v=dQw4w9WgXcQ", type: :video)
-        media.compile.must_equal %{<video data-autoplay src="http://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>}
+        media = Media.new("file.mp4", type: :video)
+        media.compile.must_equal %{<video data-autoplay src="video/file.mp4"></video>}
       end
     end
 
     describe "audio type" do
       it "compiles to html fragment" do
-        media = Media.new("http://www.example.com/audio.mp3", type: :audio)
-        media.compile.must_equal %{<audio data-autoplay src="http://www.example.com/audio.mp3"></audio>}
+        media = Media.new("audio.mp3", type: :audio)
+        media.compile.must_equal %{<audio data-autoplay src="audio/audio.mp3"></audio>}
       end
     end
   end

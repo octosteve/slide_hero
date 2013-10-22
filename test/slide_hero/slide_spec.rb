@@ -169,10 +169,10 @@ end
     describe "#media" do
       it "returns a formatted media element" do
         slide = Slide.new "Video" do
-          media "http://www.youtube.com/watch?v=dQw4w9WgXcQ", type: :video
+          media "video.mp4", type: :video
         end
 
-        slide.compile.must_include %{<video data-autoplay src="http://www.youtube.com/watch?v=dQw4w9WgXcQ"></video>}
+        slide.compile.must_include %{<video data-autoplay src="video/video.mp4"></video>}
       end
     end
   end

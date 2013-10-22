@@ -199,15 +199,15 @@ In this example, it will load an image named 'chunky_bacon.png in the images fol
 
     presentation "My Presentation" do
       slide "A slide with video" do
-        media "http://www.youtube.com/watch?v=dQw4w9WgXcQ", type: video
+        media "video.mp4", type: video
       end
 
       slide "A slide with video" do
-        media "http://example.com/audio.mp3", type: audio
+        media "audio.mp3", type: audio
       end
     end
     
-`#media` must be nested in a slide. This will create an auto playing video or audio element on the slide.
+`#media` must be nested in a slide. This will create an auto playing video or audio element on the slide. Files must be in the audio or video directory.
 
 #### Animation
 
