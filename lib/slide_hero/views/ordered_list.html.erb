@@ -1,5 +1,9 @@
 <ol> 
   <% points.each do |point| %>
-    <li<%= point.animation_class %>><%= point %></li>
+      <% if point.respond_to?(:animation_class) %>
+        <li<%= point.animation_class %>><%= point %></li>
+      <% else %>
+        <%= point %>
+      <% end %>
   <% end %>
 </ol>
