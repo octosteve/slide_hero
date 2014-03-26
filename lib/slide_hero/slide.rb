@@ -9,8 +9,7 @@ module SlideHero
     end
 
     def compile
-      gem_path = Gem.loaded_specs['slide_hero'].full_gem_path
-      Tilt::ERBTemplate.new(File.join(gem_path, 
+      Tilt::ERBTemplate.new(File.join(SlideHero.template_path, 
                                       'lib/slide_hero/views/slide.html.erb')).
                                       render(self)
     end

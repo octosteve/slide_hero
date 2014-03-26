@@ -15,4 +15,13 @@ module SlideHero
   def self.get_binding
     binding
   end
+
+  def self.template_path
+      gem = Gem.loaded_specs['slide_hero']
+      if gem 
+        gem.full_gem_path 
+      else
+        '.'
+      end
+  end
 end
