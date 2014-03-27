@@ -10,7 +10,7 @@ module SlideHero
     end
 
     def to_s
-      text
+      "<li#{animation_class}>#{text}</li>"
     end
 
     def animation_class

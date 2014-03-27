@@ -21,6 +21,10 @@ module SlideHero
       points << ListPoint.new(text, { animation: animation })
     end
 
+    def list(style=:unordered, &block)
+      points << List.new(style, &block).compile
+    end
+
     def points
       @points ||= []
     end
