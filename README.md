@@ -146,6 +146,9 @@ presentation "My Presentation" do
     list(:ordered) do
       point "I should go first"
       point "I'm ok going second"
+      list do
+        point "I'm in a nested list"
+      end
     end
   end
 end
