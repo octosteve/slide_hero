@@ -125,10 +125,10 @@ presentation "My Presentation" do
 end
 ```
 
-Currently supported plugins are :class_list, :markdown, :highlight, :zoom,
+Currently supported plugins are `:class_list`, `:markdown`, `:highlight`, `:zoom`,
 :notes, :remote, and :leap.
 
-:class_list, :hightlight, and :notes are turned activated if `set_plugins` is
+`:class_list`, `:hightlight`, and `:notes` are used if `set_plugins` is
 not called.
 
 
