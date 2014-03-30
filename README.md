@@ -121,12 +121,12 @@ You can activate revealjs plugins by passing a symbol array to the
 
 ``` ruby
 presentation "My Presentation" do
-  set_plugins :class_list, :remotes, :leap
+  set_plugins :class_list, :remote, :leap
 end
 ```
 
 Currently supported plugins are :class_list, :markdown, :highlight, :zoom,
-:notes, :remotes, and :leap.
+:notes, :remote, and :leap.
 
 :class_list, :hightlight, and :notes are turned activated if `set_plugins` is
 not called.

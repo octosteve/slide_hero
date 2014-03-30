@@ -3,6 +3,7 @@ require 'slide_hero'
 
 require 'minitest/autorun'
 require 'minitest/spec'
+
 def assert_dom_match(expected, actual)
   dom_clean(actual).must_equal(
     dom_clean(expected))
