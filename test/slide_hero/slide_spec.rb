@@ -8,6 +8,11 @@ module SlideHero
         slide.headline.must_equal "Badgers learn knitting"
       end
 
+      it "can be initialized with no title" do
+        slide = Slide.new
+        slide.headline.must_equal nil
+      end
+
       it "can take an optional side directive" do
         slide = Slide.new("Badgers learn knitting", headline_size: :large)
         slide.headline_size.must_equal :large
@@ -15,13 +20,18 @@ module SlideHero
         slide = Slide.new("Snacks lead to revolution in food care", headline_size: :medium)
         slide.headline_size.must_equal :medium
       end
+
+      it "can take a background color" do
+        slide = Slide.new("Badgers learn knitting", background_color: 'blue')
+        slide.background_color.must_equal 'blue'
+      end
     end
 
     describe "compilation" do
       it "outputs object to html" do
         slide = Slide.new("To Markup!")
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>To Markup!</h1> " +
+          "<h2>To Markup!</h2> " +
           "</section>"
       end
 
@@ -36,7 +46,16 @@ module SlideHero
         slide = Slide.new("transitions", transition: :zoom) do
         end
         assert_dom_match slide.compile, '<section data-transition="zoom">' +
-          '<h1>transitions</h1>' +
+          '<h2>transitions</h2>' +
+          '</section>'
+      end
+
+      it "takes a background_color" do
+        slide = Slide.new("background_color", background_color: 'blue') do
+        end
+        assert_dom_match slide.compile, '<section data-transition="default" ' +
+         'data-background="blue">' +
+          '<h2>background_color</h2>' +
           '</section>'
       end
     end
@@ -48,7 +67,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Embedding</h1>" +
+          "<h2>Embedding</h2>" +
           "<p>I'm embedded!</p>" +
           "</section>"
       end
@@ -59,7 +78,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Embedding</h1>" + 
+          "<h2>Embedding</h2>" + 
           "<p><small>I'm embedded!</small></p>" +
           "</section>"
       end
@@ -71,7 +90,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Embedding</h1>" + 
+          "<h2>Embedding</h2>" + 
           "<p>I'm embedded!</p>" +
           "<p>Me too!</p>" +
           "</section>"
@@ -83,7 +102,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">"+
-          "<h1>Animation</h1>" + 
+          "<h2>Animation</h2>" + 
           "<p class=\"fragment \">I'm animated!</p>" +
           "</section>"
 
@@ -99,7 +118,7 @@ module SlideHero
           end
         end
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Lists</h1>" +
+          "<h2>Lists</h2>" +
           "<ul>" +
           "<li>Bullet Points</li>" +
           "<li>Another Point</li>" +
@@ -115,7 +134,7 @@ module SlideHero
           end
         end
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Lists</h1>" +
+          "<h2>Lists</h2>" +
           "<ol>" +
           "<li>Ordered!</li>" +
           "<li>Also ordered!</li>" +
@@ -132,7 +151,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Code</h1>" +
+          "<h2>Code</h2>" +
           "<pre><code data-trim class=\"ruby\">
   class Working
   def some_method
@@ -150,7 +169,7 @@ end
           note "Don't forget to bring a towel"
         end
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h1>Note</h1>" +
+          "<h2>Note</h2>" +
           "<aside class=\"notes\">Don't forget to bring a towel</aside>" +
           "</section>"
       end

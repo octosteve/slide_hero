@@ -15,11 +15,11 @@ module SlideHero
 
         assert_dom_match grouped_slides.compile, "<section>" +
           "<section data-transition=\"default\">" +
-          "<h1>banana</h1>" +
+          "<h2>banana</h2>" +
           "<p>High in potassium</p>" +
           "</section>" +
           "<section data-transition=\"default\">" +
-          "<h1>apple</h1>" +
+          "<h2>apple</h2>" +
           "<p>Good if you hate doctors</p>" +
           "</section>" +
           "</section>" 

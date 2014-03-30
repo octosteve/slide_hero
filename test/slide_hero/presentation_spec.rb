@@ -72,7 +72,7 @@ module SlideHero
         end
       end
 
-      assert_dom_includes("<section data-transition=\"default\"><h1>Nesting!</h1><p>Woot!</p></section>", pres.compile)
+      assert_dom_includes("<section data-transition=\"default\"><h2>Nesting!</h2><p>Woot!</p></section>", pres.compile)
     end
 
     it "can have a theme set" do
@@ -94,16 +94,22 @@ module SlideHero
         set_plugins :markdown, :highlight
       end
 
-      assert pres.compile.include? "{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }"
-      assert pres.compile.include? "{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }"    
-      refute pres.compile.include? "{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }"
+      assert pres.compile.include?("{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }"), pres.compile
     end
 
     it "sets default plugins if not provided" do
       pres = Presentation.new("New stuff") {}
-      assert pres.compile.include? "{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } }"
-      assert pres.compile.include? "{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }"
-      assert pres.compile.include? "{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }"
+      assert pres.compile.include?("{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }"), pres.compile
+    end
+
+    it "ignores invalid plugins" do
+      pres = Presentation.new("New stuff") do
+        set_plugins :markdown, :totally_fake, :highlight
+      end
+
+      assert pres.compile.include?("{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }"), pres.compile
     end
   end
 end

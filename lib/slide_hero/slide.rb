@@ -1,10 +1,12 @@
 module SlideHero
   class Slide
-    attr_reader :headline, :headline_size, :transition
-    def initialize(headline, headline_size: :large, transition: :default, &point_block)
+    attr_reader :headline, :headline_size, :transition, :background_color
+    def initialize(headline=nil, headline_size: :medium, transition: :default, background_color: nil, &point_block)
       @headline = headline
       @headline_size = headline_size
       @transition = transition
+
+      @background_color = background_color
       instance_eval(&point_block) if block_given?
     end
 
@@ -52,7 +54,11 @@ module SlideHero
     end
 
     def data_attributes
-      "data-transition=\"#{transition}\""
+      "data-transition=\"#{transition}\"".tap do |attr|
+        if background_color
+          attr << " data-background=\"#{background_color}\""
+        end
+      end
     end
   end
 end

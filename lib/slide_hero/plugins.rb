@@ -12,5 +12,9 @@ module SlideHero
         leap: "{ src: 'plugin/leap/leap.js', async: true }"
       }
     end
+
+    def self.reveal_list
+      reveal.keys
+    end
   end
 end
