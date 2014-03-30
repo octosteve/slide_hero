@@ -2,7 +2,7 @@ module SlideHero
   require 'erb'
   require 'tilt'
   class Presentation
-    attr_reader :title
+    attr_reader :title, :slide_defaults
     def initialize(title, &block)
       @title = title
       @slide_defaults = {}
@@ -21,12 +21,20 @@ module SlideHero
       @slide_defaults = args
     end
 
+    def theme
+      @theme ||= 'default'
+    end
+
+    def set_theme(theme)
+      @theme = theme
+    end
+
     def slide(title, **kwargs, &slide_block)
-      slides << Slide.new(title, @slide_defaults.merge(**kwargs), &slide_block).compile
+      slides << Slide.new(title, slide_defaults.merge(**kwargs), &slide_block).compile
     end
 
     def grouped_slides(&block)
-      slides << GroupedSlides.new(@slide_defaults, &block).compile
+      slides << GroupedSlides.new(slide_defaults, &block).compile
     end
 
     def collected_slides

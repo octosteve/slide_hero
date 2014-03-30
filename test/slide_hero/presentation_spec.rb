@@ -74,5 +74,19 @@ module SlideHero
 
       assert_dom_includes("<section data-transition=\"default\"><h1>Nesting!</h1><p>Woot!</p></section>", pres.compile)
     end
+
+    it "can have a theme set" do
+      pres = Presentation.new("New stuff") do
+        set_theme 'sky'
+      end
+
+      assert pres.compile.include? "<link rel=\"stylesheet\" href=\"css/theme/sky.css\" id=\"theme\">"
+    end
+
+    it "sets the default theme to 'default'" do
+      pres = Presentation.new("New stuff") {}
+
+      assert pres.compile.include? "<link rel=\"stylesheet\" href=\"css/theme/default.css\" id=\"theme\">"
+    end
   end
 end

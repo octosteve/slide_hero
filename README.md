@@ -52,7 +52,6 @@ The DSL for SlideHero was created to add expressibility to creating slides.
     
 ```ruby
 presentation "My Presentation" do
- 
 end
 ```
 
@@ -104,6 +103,16 @@ end
 ```
 
 You can set slide defaults for `headline_size` or `transition` by using `#defaults`. A slide default applies to all slides unless an individual slide overrides it.
+The theme is set to Default.  to change this, use the `set_theme` method in the
+presentation block.
+
+``` ruby
+presentation "My Presentation" do
+  set_theme 'solarized'
+end
+```
+
+Valid theme options are: default, sky, beige, simple, serif, night, moon, solarized
 
 **points**
 
