@@ -1,4 +1,5 @@
 require_relative "slide_hero/version"
+require_relative "slide_hero/plugins"
 require_relative "slide_hero/slide"
 require_relative "slide_hero/point"
 require_relative "slide_hero/list"

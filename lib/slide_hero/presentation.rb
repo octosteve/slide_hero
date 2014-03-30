@@ -8,8 +8,24 @@ module SlideHero
       @slide_defaults = {}
       instance_eval(&block)
     end
+    
+    def set_plugins(*plugin_list)
+      if plugin_list.empty?
+        defaults = %i{class_list highlight notes}
+        plugin_list = defaults
+      end
+
+      plugin_list.each do |plugin|
+        plugins <<  "#{Plugins.reveal[plugin]},"
+      end
+    end
+
+    def plugins
+      @plugins ||= ""
+    end
 
     def compile
+      set_plugins if plugins.empty?
       Tilt::ERBTemplate.new(File.join(SlideHero.template_path, 
                                       'lib/slide_hero/views/layout.html.erb')).
                                       render(self) do 

@@ -114,6 +114,24 @@ end
 
 Valid theme options are: default, sky, beige, simple, serif, night, moon, solarized
 
+**plugins**
+
+You can activate revealjs plugins by passing a symbol array to the
+`set_plugins` method. 
+
+``` ruby
+presentation "My Presentation" do
+  set_plugins :class_list, :remotes, :leap
+end
+```
+
+Currently supported plugins are :class_list, :markdown, :highlight, :zoom,
+:notes, :remotes, and :leap.
+
+:class_list, :hightlight, and :notes are turned activated if `set_plugins` is
+not called.
+
+
 **points**
 
 ```ruby
