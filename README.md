@@ -86,6 +86,19 @@ presentation "My Presentation" do
   end
 end
 ```
+
+`#slide` can have a background color applied. This will only add the color to
+this one slide. Any css color will work.
+
+```ruby
+presentation "My Presentation" do
+  slide "A slide", background_color: 'blue' do
+    #…
+  end
+end
+```
+
+
 **defaults**
 
 ```ruby
