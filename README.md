@@ -139,10 +139,12 @@ end
 ```
 
 Currently supported plugins are `:class_list`, `:markdown`, `:highlight`, `:zoom`,
-:notes, :remote, and :leap.
+`:notes`, `:remote`, and `:leap`.
 
 `:class_list`, `:hightlight`, and `:notes` are used if `set_plugins` is
 not called.
+
+See Reveal.js [documentation](https://github.com/hakimel/reveal.js/#dependencies) for more info on these plugins.
 
 
 **points**
