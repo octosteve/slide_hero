@@ -5,7 +5,7 @@ Ruby DSL.
 
 ## Installation
 
-Requires Ruby 2.0.0
+Requires Ruby 2.1
 
 Add this line to your application's Gemfile:
 
