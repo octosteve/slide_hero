@@ -3,6 +3,16 @@
 SlideHero is a gem for creating presentations backed by reveal.js through a 
 Ruby DSL. 
 
+``` ruby
+presentation "My Presentation" do
+  slide "A slide" do
+    point "An interesting Point"
+  end
+end
+```
+
+That's it!
+
 ## Installation
 
 Requires Ruby 2.1
