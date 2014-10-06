@@ -16,8 +16,9 @@ module SlideHero
                                       render(self)
     end
 
-    def point(text, animation: nil)
+    def point(text, animation: nil, &block)
       points << Point.new(text, animation: animation).compile
+      list &block if block_given?
     end
 
     def list(style=:unordered, &block)
