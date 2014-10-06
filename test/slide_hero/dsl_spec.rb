@@ -34,5 +34,33 @@ module SlideHero
       pres.must_include "<h2>Outer Slide</h2>"
       pres.must_include "<h2>Inner Slide</h2>"
     end
+
+    describe 'lightweight DSL' do
+      it 'allows cheeky text bullet points in slides' do
+        presentation 'x' do
+          slide 'my slide' do
+            o 'my point'
+          end
+        end.must_include 'my point'
+      end
+      it 'allows "bullet" points in lists' do
+        presentation 'x' do
+          slide 'my slide' do
+            list 'my list' do
+              o 'a list point'
+            end
+          end
+        end.must_include 'a list point'
+      end
+      it 'automatically inserts an anonymous list defined by a block passed to a point' do
+        presentation 'x' do
+          slide 'my slide' do
+            point 'my point' do
+              o 'a sub-point'
+            end
+          end
+        end.must_include 'a sub-point'
+      end
+    end
   end
 end

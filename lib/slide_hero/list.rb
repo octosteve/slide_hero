@@ -28,5 +28,7 @@ module SlideHero
     def points
       @points ||= []
     end
+
+    alias_method :o, :point
   end
 end
