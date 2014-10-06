@@ -282,6 +282,16 @@ end
 
 Supported animations are: step, grow, shrink, roll-in, fade-out, highlight-red, highlight-green, and highlight-blue  
 
+#### Lightweight DSL Aliases
+
+```ruby
+slide do 
+  o "A point" do
+    o "Explanatory sub-point..."
+    o "...actually a point in an implicit anonymous list"
+  end
+end
+
 ## Contributing
 
 1. Fork it
