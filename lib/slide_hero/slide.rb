@@ -43,6 +43,8 @@ module SlideHero
     def media(*args, **kwargs)
       points << Media.new(*args, **kwargs).compile
     end
+    
+    alias_method :o, :point
 
     private
     def size_to_markup

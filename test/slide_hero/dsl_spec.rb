@@ -34,5 +34,15 @@ module SlideHero
       pres.must_include "<h2>Outer Slide</h2>"
       pres.must_include "<h2>Inner Slide</h2>"
     end
+
+    describe 'shortcut aliasing' do
+      it 'allows cheeky text bullet points' do
+        presentation 'x' do
+          slide 'my slide' do
+            o 'my point'
+          end
+        end.must_include 'my point'
+      end
+    end
   end
 end
