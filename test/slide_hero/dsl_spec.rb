@@ -36,12 +36,21 @@ module SlideHero
     end
 
     describe 'shortcut aliasing' do
-      it 'allows cheeky text bullet points' do
+      it 'allows cheeky text bullet points in slides' do
         presentation 'x' do
           slide 'my slide' do
             o 'my point'
           end
         end.must_include 'my point'
+      end
+      it 'allows "bullet" points in lists' do
+        presentation 'x' do
+          slide 'my slide' do
+            list 'my list' do
+              o 'a list point'
+            end
+          end
+        end.must_include 'a list point'
       end
     end
   end
