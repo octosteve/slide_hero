@@ -1,0 +1,105 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Code	./lib/slide_hero/code.rb	/^  class Code$/;"	c	class:SlideHero
+DSL	./lib/slide_hero/dsl.rb	/^  module DSL$/;"	m	class:SlideHero
+GroupedSlides	./lib/slide_hero/grouped_slides.rb	/^  class GroupedSlides$/;"	c	class:SlideHero
+Image	./lib/slide_hero/image.rb	/^  class Image$/;"	c	class:SlideHero
+List	./lib/slide_hero/list.rb	/^  class List$/;"	c	class:SlideHero
+ListPoint	./lib/slide_hero/list_point.rb	/^  class ListPoint$/;"	c	class:SlideHero
+Media	./lib/slide_hero/media.rb	/^  class Media$/;"	c	class:SlideHero
+Note	./lib/slide_hero/note.rb	/^  class Note$/;"	c	class:SlideHero
+Plugins	./lib/slide_hero/plugins.rb	/^  module Plugins$/;"	m	class:SlideHero
+Point	./lib/slide_hero/point.rb	/^  class Point$/;"	c	class:SlideHero
+Presentation	./lib/slide_hero/presentation.rb	/^  class Presentation$/;"	c	class:SlideHero
+Slide	./lib/slide_hero/slide.rb	/^  class Slide$/;"	c	class:SlideHero
+SlideHero	./lib/slide_hero.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/code.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/dsl.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/grouped_slides.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/image.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/list.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/list_point.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/media.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/note.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/plugins.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/point.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/presentation.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/slide.rb	/^module SlideHero$/;"	m
+SlideHero	./lib/slide_hero/version.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/code_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/dsl_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/grouped_slides_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/image_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/list_point_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/list_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/media_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/note_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/plugins_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/point_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/presentation_spec.rb	/^module SlideHero$/;"	m
+SlideHero	./test/slide_hero/slide_spec.rb	/^module SlideHero$/;"	m
+Working	./test/fixtures/code/testclass.rb	/^class Working$/;"	c
+Working	./test/slide_hero/code_spec.rb	/^  class Working$/;"	c
+Working	./test/slide_hero/slide_spec.rb	/^  class Working$/;"	c
+animation	./lib/slide_hero/point.rb	/^    def animation$/;"	f	class:SlideHero.Point
+animation_class	./lib/slide_hero/list_point.rb	/^    def animation_class$/;"	f	class:SlideHero.ListPoint
+assert_dom_includes	./test/minitest_helper.rb	/^def assert_dom_includes(expected, actual)$/;"	f
+assert_dom_match	./test/minitest_helper.rb	/^def assert_dom_match(expected, actual)$/;"	f
+code	./lib/slide_hero/slide.rb	/^    def code(*args, &code)$/;"	f	class:SlideHero.Slide
+collected_slides	./lib/slide_hero/presentation.rb	/^    def collected_slides$/;"	f	class:SlideHero.Presentation
+compile	./lib/slide_hero/code.rb	/^    def compile$/;"	f	class:SlideHero.Code
+compile	./lib/slide_hero/grouped_slides.rb	/^    def compile$/;"	f	class:SlideHero.GroupedSlides
+compile	./lib/slide_hero/image.rb	/^    def compile$/;"	f	class:SlideHero.Image
+compile	./lib/slide_hero/list.rb	/^    def compile$/;"	f	class:SlideHero.List
+compile	./lib/slide_hero/media.rb	/^    def compile$/;"	f	class:SlideHero.Media
+compile	./lib/slide_hero/note.rb	/^    def compile$/;"	f	class:SlideHero.Note
+compile	./lib/slide_hero/point.rb	/^    def compile$/;"	f	class:SlideHero.Point
+compile	./lib/slide_hero/presentation.rb	/^    def compile$/;"	f	class:SlideHero.Presentation
+compile	./lib/slide_hero/slide.rb	/^    def compile$/;"	f	class:SlideHero.Slide
+data_attributes	./lib/slide_hero/slide.rb	/^    def data_attributes$/;"	f	class:SlideHero.Slide
+defaults	./lib/slide_hero/presentation.rb	/^    def defaults(args)$/;"	f	class:SlideHero.Presentation
+dom_clean	./test/minitest_helper.rb	/^def dom_clean(html)$/;"	f
+get_binding	./lib/slide_hero.rb	/^  def self.get_binding$/;"	F	class:SlideHero
+grouped_slides	./lib/slide_hero/presentation.rb	/^    def grouped_slides(&block)$/;"	f	class:SlideHero.Presentation
+height_attribute	./lib/slide_hero/image.rb	/^    def height_attribute$/;"	f	class:SlideHero.Image
+image	./lib/slide_hero/slide.rb	/^    def image(*args, **kwargs)$/;"	f	class:SlideHero.Slide
+initialize	./lib/slide_hero/code.rb	/^    def initialize(language, code_path=Dir.pwd, &code_file)$/;"	f	class:SlideHero.Code
+initialize	./lib/slide_hero/grouped_slides.rb	/^    def initialize(slide_defaults={}, &block)$/;"	f	class:SlideHero.GroupedSlides
+initialize	./lib/slide_hero/image.rb	/^    def initialize(location, alt_text="", width:nil, height:nil)$/;"	f	class:SlideHero.Image
+initialize	./lib/slide_hero/list.rb	/^    def initialize(style=:unordered, &block)$/;"	f	class:SlideHero.List
+initialize	./lib/slide_hero/list_point.rb	/^    def initialize(text, options={})$/;"	f	class:SlideHero.ListPoint
+initialize	./lib/slide_hero/media.rb	/^    def initialize(url, type: :video)$/;"	f	class:SlideHero.Media
+initialize	./lib/slide_hero/note.rb	/^    def initialize(text)$/;"	f	class:SlideHero.Note
+initialize	./lib/slide_hero/point.rb	/^    def initialize(text, animation: nil)$/;"	f	class:SlideHero.Point
+initialize	./lib/slide_hero/presentation.rb	/^    def initialize(title, &block)$/;"	f	class:SlideHero.Presentation
+initialize	./lib/slide_hero/slide.rb	/^    def initialize(headline=nil, headline_size: :medium, transition: :default, background_color: nil, &point_block)$/;"	f	class:SlideHero.Slide
+list	./lib/slide_hero/list.rb	/^    def list(style=:unordered, &block)$/;"	f	class:SlideHero.List
+list	./lib/slide_hero/slide.rb	/^    def list(style=:unordered, &block)$/;"	f	class:SlideHero.Slide
+media	./lib/slide_hero/slide.rb	/^    def media(*args, **kwargs)$/;"	f	class:SlideHero.Slide
+note	./lib/slide_hero/slide.rb	/^    def note(text)$/;"	f	class:SlideHero.Slide
+plugins	./lib/slide_hero/presentation.rb	/^    def plugins$/;"	f	class:SlideHero.Presentation
+point	./lib/slide_hero/list.rb	/^    def point(text, animation: nil)$/;"	f	class:SlideHero.List
+point	./lib/slide_hero/slide.rb	/^    def point(text, animation: nil)$/;"	f	class:SlideHero.Slide
+points	./lib/slide_hero/list.rb	/^    def points$/;"	f	class:SlideHero.List
+points	./lib/slide_hero/slide.rb	/^    def points$/;"	f	class:SlideHero.Slide
+presentation	./lib/slide_hero/dsl.rb	/^    def presentation(title, &slide_block)$/;"	f	class:SlideHero.DSL
+reveal	./lib/slide_hero/plugins.rb	/^    def self.reveal$/;"	F	class:SlideHero.Plugins
+reveal_list	./lib/slide_hero/plugins.rb	/^    def self.reveal_list$/;"	F	class:SlideHero.Plugins
+set_plugins	./lib/slide_hero/presentation.rb	/^    def set_plugins(*plugin_list)$/;"	f	class:SlideHero.Presentation
+set_theme	./lib/slide_hero/presentation.rb	/^    def set_theme(theme)$/;"	f	class:SlideHero.Presentation
+size_to_markup	./lib/slide_hero/slide.rb	/^    def size_to_markup$/;"	f	class:SlideHero.Slide
+slide	./lib/slide_hero/grouped_slides.rb	/^    def slide(headline, **kwargs, &block)$/;"	f	class:SlideHero.GroupedSlides
+slide	./lib/slide_hero/presentation.rb	/^    def slide(title, **kwargs, &slide_block)$/;"	f	class:SlideHero.Presentation
+slides	./lib/slide_hero/grouped_slides.rb	/^    def slides$/;"	f	class:SlideHero.GroupedSlides
+slides	./lib/slide_hero/presentation.rb	/^    def slides$/;"	f	class:SlideHero.Presentation
+some_method	./test/fixtures/code/testclass.rb	/^  def some_method$/;"	f	class:Working
+some_method	./test/slide_hero/code_spec.rb	/^  def some_method$/;"	f	class:Working
+some_method	./test/slide_hero/slide_spec.rb	/^  def some_method$/;"	f	class:Working
+template_path	./lib/slide_hero.rb	/^  def self.template_path$/;"	F	class:SlideHero
+theme	./lib/slide_hero/presentation.rb	/^    def theme$/;"	f	class:SlideHero.Presentation
+to_s	./lib/slide_hero/list_point.rb	/^    def to_s$/;"	f	class:SlideHero.ListPoint
+width_attribute	./lib/slide_hero/image.rb	/^    def width_attribute$/;"	f	class:SlideHero.Image

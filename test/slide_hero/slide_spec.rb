@@ -1,4 +1,5 @@
 require 'minitest_helper'
+require 'webmock/minitest'
 
 module SlideHero
   describe Slide do
@@ -182,6 +183,26 @@ end
         end
 
         slide.compile.must_include %{<img width="280" height="326" src="images/cornify.gif" alt="Unicorn">}
+      end
+    end
+
+    describe "#remote_image" do
+      after do
+        image = File.join(Dir.pwd,"test","tmp","images", "le_troll.png")
+        File.delete(image)
+      end
+
+      it "returns a formatted Image from a remote source" do
+        stub_request(:get, "http://example.com/troll.png").
+          to_return(body: File.open(File.join(Dir.pwd,"test","fixtures","images", "image.png")))
+
+        destination_folder = File.join(Dir.pwd,"test","tmp","images")
+
+        slide = Slide.new "Image" do
+          remote_image("http://example.com/troll.png", "Troll", width: 280, height: 326, as: "le_troll", destination: destination_folder)
+        end
+
+        slide.compile.must_include %{<img width="280" height="326" src="images/le_troll.png" alt="Troll">}
       end
     end
 

@@ -40,13 +40,17 @@ module SlideHero
       points << Image.new(*args, **kwargs).compile
     end
 
+    def remote_image(*args, **kwargs)
+      points << RemoteImage.new(*args, **kwargs).compile
+    end
+
     def media(*args, **kwargs)
       points << Media.new(*args, **kwargs).compile
     end
 
     private
     def size_to_markup
-      { 
+      {
         large: :h1,
         medium: :h2,
         small: :h3
