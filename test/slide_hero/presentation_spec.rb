@@ -83,10 +83,10 @@ module SlideHero
       assert pres.compile.include? "<link rel=\"stylesheet\" href=\"css/theme/sky.css\" id=\"theme\">"
     end
 
-    it "sets the default theme to 'default'" do
+    it "sets the default theme to 'solarized'" do
       pres = Presentation.new("New stuff") {}
 
-      assert pres.compile.include? "<link rel=\"stylesheet\" href=\"css/theme/default.css\" id=\"theme\">"
+      assert pres.compile.include? "<link rel=\"stylesheet\" href=\"css/theme/solarized.css\" id=\"theme\">"
     end
 
     it "allows plugins to be set" do
@@ -100,7 +100,7 @@ module SlideHero
 
     it "sets default plugins if not provided" do
       pres = Presentation.new("New stuff") {}
-      assert pres.compile.include?("{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }"), pres.compile
+      assert pres.compile.include?("{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }"), pres.compile
     end
 
     it "ignores invalid plugins" do

@@ -11,7 +11,7 @@ module SlideHero
 
     def set_plugins(*plugin_list)
       if plugin_list.empty?
-        defaults = %i{class_list highlight notes}
+        defaults = %i{class_list highlight notes remote}
         plugin_list = defaults
       end
 
@@ -42,7 +42,7 @@ module SlideHero
     end
 
     def theme
-      @theme ||= 'default'
+      @theme ||= 'solarized'
     end
 
     def set_theme(theme)

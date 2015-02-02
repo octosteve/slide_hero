@@ -126,12 +126,12 @@ end
 ```
 
 You can set slide defaults for `headline_size` or `transition` by using `#defaults`. A slide default applies to all slides unless an individual slide overrides it.
-The theme is set to Default.  to change this, use the `set_theme` method in the
+The theme is set to Solarized.  to change this, use the `set_theme` method in the
 presentation block.
 
 ``` ruby
 presentation "My Presentation" do
-  set_theme 'solarized'
+  set_theme 'beige'
 end
 ```
 
@@ -151,7 +151,7 @@ end
 Currently supported plugins are `:class_list`, `:markdown`, `:highlight`, `:zoom`,
 `:notes`, `:remote`, and `:leap`.
 
-`:class_list`, `:highlight`, and `:notes` are used if `set_plugins` is
+`:class_list`, `:highlight`, `:remote`, and `:notes` are used if `set_plugins` is
 not called.
 
 See Reveal.js [documentation](https://github.com/hakimel/reveal.js/#dependencies) for more info on these plugins.
