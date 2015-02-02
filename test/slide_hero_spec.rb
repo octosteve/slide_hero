@@ -9,6 +9,7 @@ require_relative 'slide_hero/presentation_spec'
 require_relative 'slide_hero/dsl_spec'
 require_relative 'slide_hero/note_spec'
 require_relative 'slide_hero/image_spec'
+require_relative 'slide_hero/remote_image_spec'
 require_relative 'slide_hero/media_spec'
 require_relative 'slide_hero/plugins_spec'
 
