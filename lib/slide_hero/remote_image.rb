@@ -13,15 +13,23 @@ module SlideHero
     end
 
     def compile
+      fetch_remote_file unless file_cached?
+      image_class.new(local_name, alt_text, width: width, height:height).compile
+    end
+
+    private
+
+    def file_cached?
+      File.exist?("#{destination}/#{local_name}")
+    end
+
+    def fetch_remote_file
       open(location) do |f|
         File.open("#{destination}/#{local_name}","wb") do |file|
           file.puts f.read
         end
       end
-      image_class.new(local_name, alt_text, width: width, height:height).compile
     end
-
-    private
 
     def local_name
       file_extention = location.match(/.*(.\w\w\w\w?)/)[1]
