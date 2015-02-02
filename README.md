@@ -1,7 +1,7 @@
 # SlideHero
 
-SlideHero is a gem for creating presentations backed by reveal.js through a 
-Ruby DSL. 
+SlideHero is a gem for creating presentations backed by reveal.js through a
+Ruby DSL.
 
 ``` ruby
 presentation "My Presentation" do
@@ -37,21 +37,21 @@ All features are accessible through the `slidehero` command.
 ### Generator
 
     slidehero new presentation_name
-    
-This creates a new folder named `presentation_name` in the current directory. Inside, there is a sample file called `presentation.rb`. 
+
+This creates a new folder named `presentation_name` in the current directory. Inside, there is a sample file called `presentation.rb`.
 
 ### Server
 
     slidehero serve
- 
+
 Call this in the same folder as your presentation to serve your files on port 9292. You can optionally pass in an alternate location for the presentation.rb file.
 
     slidehero serve ../other/folder/presentation.rb
-    
+
 ### Compilation
 
     slidehero compile
-  
+
 Use this if you just want a folder with the markup files. A new `presentation` folder is created.
 
 ### DSL
@@ -59,7 +59,7 @@ Use this if you just want a folder with the markup files. A new `presentation` f
 The DSL for SlideHero was created to add expressibility to creating slides.
 
 **presentation**
-    
+
 ```ruby
 presentation "My Presentation" do
 end
@@ -76,7 +76,7 @@ presentation "My Presentation" do
   end
 end
 ```
-    
+
 `#slide` is used to create a new slide. The string is the headline of the slide. `#slide` can take an optional argument of `headline_size:`. Valid options are :small, :medium, :large. These create h3, h2, and h1 elements respectively.
 
 ```ruby
@@ -114,11 +114,11 @@ end
 ```ruby
 presentation "My Presentation" do
   defaults headline_size: :medium, transition: :fade
-  
+
   slide "A slide" do
     #…
   end
-  
+
   slide "Some slides override", headline_size: :large do
     #…#…
   end
@@ -140,7 +140,7 @@ Valid theme options are: default, sky, beige, simple, serif, night, moon, solari
 **plugins**
 
 You can activate revealjs plugins by passing a symbol array to the
-`set_plugins` method. 
+`set_plugins` method.
 
 ``` ruby
 presentation "My Presentation" do
@@ -181,7 +181,7 @@ presentation "My Presentation" do
   end
 end
 ```
-    
+
 `#grouped_slides` lets you nest slides. In reveal, this translates into vertical slides.
 
 **lists**
@@ -197,7 +197,7 @@ presentation "My Presentation" do
   slide "Slide 2" do
     list(:ordered) do
       point "I should go first"
-      point "I'm ok going second"
+      point "I'm OK going second"
       list do
         point "I'm in a nested list"
       end
@@ -206,7 +206,7 @@ presentation "My Presentation" do
 end
 ```
 
-`#list` must be nested in a slide. It takes an optional argument of :ordered to 
+`#list` must be nested in a slide. It takes an optional argument of :ordered to
 create an ordered list. List items are added by the `#point` method.
 
 **code**
@@ -220,9 +220,9 @@ presentation "My Presentation" do
   end
 end
 ```
-    
-`#code` must be nested in a slide. It loads any code file in the same directory as the file. 
-The language passed as an argument will be embedded in the markup. 
+
+`#code` must be nested in a slide. It loads any code file in the same directory as the file.
+The language passed as an argument will be embedded in the markup.
 code must be in the `code` folder. An optional second argument of a base location can be passed into the code method. Your folder must also have a `code` folder.
 All supported languages can be found on the [Highlight.js Page](http://softwaremaniacs.org/media/soft/highlight/test.html)
 
@@ -246,9 +246,21 @@ presentation "My Presentation" do
     image "chunky_bacon.png"
   end
 end
-```    
-`#image` must be nested in a slide. All images in the images folder will be ported over on compilation. Use the name of the image, with out the 'images' subfolder
-In this example, it will load an image named 'chunky_bacon.png in the images folder.
+```
+`#image` must be nested in a slide. All images in the images folder will be ported over on compilation. Use the name of the image, with out the 'images' sub-folder
+In this example, it will load an image named 'chunky_bacon.png' in the images folder.
+
+**remote_image**
+
+```ruby
+presentation "My Presentation" do
+  slide "A slide" do
+    remote_image "http://example.com/chunky_bacon.png", as: "bacon"
+  end
+end
+```
+
+`#remote_image` takes the same arguments as `#image` with the addition of the `as:` parameter. The file is downloaded and stored in the presentation's `images` folder and is named after the `as` value. File extensions are preserved.
 
 **media**
 
@@ -261,7 +273,7 @@ In this example, it will load an image named 'chunky_bacon.png in the images fol
         media "audio.mp3", type: audio
       end
     end
-    
+
 `#media` must be nested in a slide. This will create an auto playing video or audio element on the slide. Files must be in the audio or video directory.
 
 #### Animation
@@ -270,7 +282,7 @@ Animation for points are supported.
 
 ```ruby
 #…
-slide do 
+slide do
   point "My point", animation: "grow"
   list do
     point "My", animation: "step"
