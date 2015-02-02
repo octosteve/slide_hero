@@ -260,7 +260,7 @@ presentation "My Presentation" do
 end
 ```
 
-`#remote_image` takes the same arguments as `#image` with the addition of the `as:` parameter. The file is downloaded and stored in the presentation's `images` folder and is named after the `as` value. File extensions are preserved.
+`#remote_image` takes the same arguments as `#image` with the addition of the `as:` parameter. The file is downloaded and stored in the presentation's `images` folder and is named after the `as` value. Leave the `as` option off if you want to use the name in the url.
 
 **media**
 
