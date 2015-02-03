@@ -15,7 +15,7 @@ That's it!
 
 ## Installation
 
-Requires Ruby 2.1
+Requires Ruby 2.2
 
 Add this line to your application's Gemfile:
 
