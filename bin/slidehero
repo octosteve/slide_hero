@@ -37,10 +37,10 @@ class PresentationGenerator < Thor
     compile(name, '.tmp')
     puts "Go checkout your awesome presentation at http://localhost:9292!"
 
-    rackupPid = Process.spawn("rackup #{Gem.loaded_specs['slide_hero'].full_gem_path}/config.ru")                     
+    serverPid = Process.spawn("ruby -run -e httpd .tmp -p 9292")
 
     last_update = Time.now
-    loop do 
+    loop do
       if File.mtime(name) > last_update
         puts "File change noted!"
         puts "Recompiling"
@@ -52,7 +52,7 @@ class PresentationGenerator < Thor
 
   rescue Exception => e
     puts e
-    Process.kill(9, rackupPid) rescue Errno::ESRCH
+    Process.kill(9, serverPid) rescue Errno::ESRCH
     remove_dir '.tmp'
     puts "GOING DOWN!"
     exit 0
