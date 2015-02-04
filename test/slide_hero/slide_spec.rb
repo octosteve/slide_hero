@@ -182,7 +182,7 @@ end
           image("cornify.gif", "Unicorn", width: 280, height: 326)
         end
 
-        slide.compile.must_include %{<img width="280" height="326" src="images/cornify.gif" alt="Unicorn">}
+        slide.compile.must_include %{<img width="280" height="326" class="stretch" src="images/cornify.gif" alt="Unicorn">}
       end
     end
 
@@ -202,7 +202,7 @@ end
           remote_image("http://example.com/troll.png", "Troll", width: 280, height: 326, as: "le_troll", destination: destination_folder)
         end
 
-        slide.compile.must_include %{<img width="280" height="326" src="images/le_troll.png" alt="Troll">}
+        slide.compile.must_include %{<img width="280" height="326" class="stretch" src="images/le_troll.png" alt="Troll">}
       end
     end
 

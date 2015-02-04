@@ -9,7 +9,7 @@ module SlideHero
     end
 
     def compile
-      %{<img#{width_attribute}#{height_attribute} src="images/#{location}" alt="#{alt_text}">}
+      %{<img#{width_attribute}#{height_attribute} class="stretch" src="images/#{location}" alt="#{alt_text}">}
     end
 
     def height_attribute
