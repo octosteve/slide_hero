@@ -1,6 +1,7 @@
 require_relative "slide_hero/version"
 require_relative "slide_hero/plugins"
-require_relative "slide_hero/slide"
+require_relative "slide_hero/compilable"
+require_relative "slide_hero/pluggable"
 require_relative "slide_hero/point"
 require_relative "slide_hero/list"
 require_relative "slide_hero/list_point"
@@ -11,6 +12,7 @@ require_relative "slide_hero/note"
 require_relative "slide_hero/image"
 require_relative "slide_hero/remote_image"
 require_relative "slide_hero/media"
+require_relative "slide_hero/slide"
 require_relative "slide_hero/dsl"
 
 module SlideHero
@@ -25,14 +27,5 @@ module SlideHero
       else
         '.'
       end
-  end
-
-  def self.underscore(camel_cased_word)
-    return camel_cased_word unless camel_cased_word =~ /[A-Z-]|::/
-    word = camel_cased_word.to_s.gsub(/::/, '/')
-    word.gsub!(/([A-Z\d]+)([A-Z][a-z])/,'\1_\2')
-    word.gsub!(/([a-z\d])([A-Z])/,'\1_\2')
-    word.downcase!
-    word
   end
 end

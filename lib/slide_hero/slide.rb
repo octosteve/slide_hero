@@ -1,5 +1,8 @@
 module SlideHero
   class Slide
+    include Compilable
+    extend Pluggable
+
     attr_reader :headline, :headline_size, :transition, :background_color
     def initialize(headline=nil, headline_size: :medium, transition: :default, background_color: nil, &point_block)
       @headline = headline
@@ -10,46 +13,10 @@ module SlideHero
       instance_eval(&point_block) if block_given?
     end
 
-    def compile
-      Tilt::ERBTemplate.new(
-      File.join(SlideHero.template_path, template)).render(self).strip
-    end
-
-    def template
-      template_file = SlideHero.underscore(self.class.to_s.split("::").last)
-      "lib/slide_hero/views/#{template_file}.html.erb"
-    end
-
-    def point(text, animation: nil)
-      points << Point.new(text, animation: animation).compile
-    end
-
-    def list(style=:unordered, &block)
-      points << List.new(style, &block).compile
-    end
-
-    def code(*args, &code)
-      points << Code.new(*args, &code).compile
-    end
+    create_plugs_for Note, Point, List, Code, Image, RemoteImage, Media
 
     def points
       @points ||= []
-    end
-
-    def note(text)
-      points << Note.new(text).compile
-    end
-
-    def image(*args, **kwargs)
-      points << Image.new(*args, **kwargs).compile
-    end
-
-    def remote_image(*args, **kwargs)
-      points << RemoteImage.new(*args, **kwargs).compile
-    end
-
-    def media(*args, **kwargs)
-      points << Media.new(*args, **kwargs).compile
     end
 
     private
