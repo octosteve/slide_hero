@@ -3,13 +3,13 @@ module SlideHero
     include Compilable
     extend Pluggable
 
-    attr_reader :headline, :headline_size, :transition, :background_color
-    def initialize(headline=nil, headline_size: :medium, transition: :default, background_color: nil, &point_block)
+    attr_reader :headline, :headline_size, :transition, :background
+    def initialize(headline=nil, headline_size: :medium, transition: :default, background: nil, &point_block)
       @headline = headline
       @headline_size = headline_size
       @transition = transition
 
-      @background_color = background_color
+      @background= background
       instance_eval(&point_block) if block_given?
     end
 
@@ -30,8 +30,14 @@ module SlideHero
 
     def data_attributes
       "data-transition=\"#{transition}\"".tap do |attr|
-        if background_color
-          attr << " data-background=\"#{background_color}\""
+        case 
+        when String(background).start_with?('http')
+          attr << " data-background=\"#{background}\""
+        when String(background).include?('.')
+          filename = background.gsub(/\s/, "%20")
+          attr << " data-background=\"/images/#{filename}\""
+        when background
+          attr << " data-background=\"#{background}\""
         end
       end
     end

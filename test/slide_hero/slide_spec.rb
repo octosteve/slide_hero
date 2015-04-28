@@ -23,8 +23,8 @@ module SlideHero
       end
 
       it "can take a background color" do
-        slide = Slide.new("Badgers learn knitting", background_color: 'blue')
-        slide.background_color.must_equal 'blue'
+        slide = Slide.new("Badgers learn knitting", background: 'blue')
+        slide.background.must_equal 'blue'
       end
     end
 
@@ -52,11 +52,37 @@ module SlideHero
       end
 
       it "takes a background_color" do
-        slide = Slide.new("background_color", background_color: 'blue') do
+        slide = Slide.new("background_color", background: 'blue') do
         end
         assert_dom_match slide.compile, '<section data-transition="default" ' +
          'data-background="blue">' +
           '<h2>background_color</h2>' +
+          '</section>'
+      end
+
+      it "takes a local image as a background" do
+        slide = Slide.new("background image", background: 'lizard.png') do
+        end
+        assert_dom_match slide.compile, '<section data-transition="default" ' +
+         'data-background="/images/lizard.png">' +
+          '<h2>background image</h2>' +
+          '</section>'
+      end
+      it "escapes filenames with spaces" do
+        slide = Slide.new("background image", background: 'a lizard.png') do
+        end
+        assert_dom_match slide.compile, '<section data-transition="default" ' +
+         'data-background="/images/a%20lizard.png">' +
+          '<h2>background image</h2>' +
+          '</section>'
+      end
+
+      it "can load remote images" do
+        slide = Slide.new("remote image", background: 'http://media3.giphy.com/media/ZFlW5pAMdPjJm/200.gif') do
+        end
+        assert_dom_match slide.compile, '<section data-transition="default" ' +
+         'data-background="http://media3.giphy.com/media/ZFlW5pAMdPjJm/200.gif">' +
+          '<h2>remote image</h2>' +
           '</section>'
       end
     end

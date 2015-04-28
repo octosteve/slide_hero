@@ -102,12 +102,32 @@ this one slide. Any css color will work.
 
 ```ruby
 presentation "My Presentation" do
-  slide "A slide", background_color: 'blue' do
+  slide "A slide", background: 'blue' do
     #…
   end
 end
 ```
 
+The `background` option also supports images. If you give a the name of a
+image, it will look for a file by that name in your `images` directory. 
+
+```ruby
+presentation "My Presentation" do
+  slide "A slide", background: 'bunnies.gif' do
+    #…
+  end
+end
+```
+
+You can also give it a url to load a remote image.
+
+```ruby
+presentation "My Presentation" do
+  slide "A slide", background: 'http://example.com/bunnies.gif' do
+    #…
+  end
+end
+```
 
 **defaults**
 
