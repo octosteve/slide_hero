@@ -286,11 +286,11 @@ end
 
     presentation "My Presentation" do
       slide "A slide with video" do
-        media "video.mp4", type: video
+        media "video.mp4", type: :video
       end
 
       slide "A slide with video" do
-        media "audio.mp3", type: audio
+        media "audio.mp3", type: :audio
       end
     end
 
