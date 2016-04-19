@@ -100,7 +100,7 @@ module SlideHero
 
     it "sets default plugins if not provided" do
       pres = Presentation.new("New stuff") {}
-      assert pres.compile.include?("{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }"), pres.compile
+      assert pres.compile.include?("{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }"), pres.compile
     end
 
     it "ignores invalid plugins" do

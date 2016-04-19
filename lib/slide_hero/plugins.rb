@@ -8,7 +8,6 @@ module SlideHero
         highlight:  "{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
         zoom:  "{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
         notes:  "{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
-        remote:  "{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }",
         leap: "{ src: 'plugin/leap/leap.js', async: true }"
       }
     end

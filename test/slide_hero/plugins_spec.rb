@@ -8,7 +8,6 @@ module SlideHero
         Plugins.reveal[:highlight].must_equal  "{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }"
         Plugins.reveal[:zoom].must_equal  "{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }"
         Plugins.reveal[:notes].must_equal  "{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }"
-        Plugins.reveal[:remote].must_equal  "{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }"
         Plugins.reveal[:leap].must_equal "{ src: 'plugin/leap/leap.js', async: true }"
     end
   end

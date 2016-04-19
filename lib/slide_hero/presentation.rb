@@ -11,7 +11,7 @@ module SlideHero
 
     def set_plugins(*plugin_list)
       if plugin_list.empty?
-        defaults = %i{class_list highlight notes remote}
+        defaults = %i{class_list highlight notes}
         plugin_list = defaults
       end
 
@@ -30,9 +30,9 @@ module SlideHero
 
     def compile
       set_plugins if plugins.empty?
-      Tilt::ERBTemplate.new(File.join(SlideHero.template_path, 
+      Tilt::ERBTemplate.new(File.join(SlideHero.template_path,
                                       'lib/slide_hero/views/layout.html.erb')).
-                                      render(self) do 
+                                      render(self) do
                                         collected_slides
                                       end
     end
