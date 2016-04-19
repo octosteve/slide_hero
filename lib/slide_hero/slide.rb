@@ -13,7 +13,7 @@ module SlideHero
       instance_eval(&point_block) if block_given?
     end
 
-    create_plugs_for Note, Point, List, Code, Image, RemoteImage, Media
+    create_plugs_for Note, Point, List, Code, Image, RemoteImage, Media, Blockquote
 
     def points
       @points ||= []
@@ -30,7 +30,7 @@ module SlideHero
 
     def data_attributes
       "data-transition=\"#{transition}\"".tap do |attr|
-        case 
+        case
         when String(background).start_with?('http')
           attr << " data-background=\"#{background}\""
         when String(background).include?('.')

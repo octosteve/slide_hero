@@ -12,6 +12,7 @@ require_relative "slide_hero/note"
 require_relative "slide_hero/image"
 require_relative "slide_hero/remote_image"
 require_relative "slide_hero/media"
+require_relative "slide_hero/blockquote"
 require_relative "slide_hero/slide"
 require_relative "slide_hero/dsl"
 

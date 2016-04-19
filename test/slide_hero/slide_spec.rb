@@ -105,7 +105,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h2>Embedding</h2>" + 
+          "<h2>Embedding</h2>" +
           "<p><small>I'm embedded!</small></p>" +
           "</section>"
       end
@@ -117,7 +117,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">" +
-          "<h2>Embedding</h2>" + 
+          "<h2>Embedding</h2>" +
           "<p>I'm embedded!</p>" +
           "<p>Me too!</p>" +
           "</section>"
@@ -129,7 +129,7 @@ module SlideHero
         end
 
         assert_dom_match slide.compile, "<section data-transition=\"default\">"+
-          "<h2>Animation</h2>" + 
+          "<h2>Animation</h2>" +
           "<p class=\"fragment \">I'm animated!</p>" +
           "</section>"
 
@@ -239,6 +239,17 @@ end
         end
 
         slide.compile.must_include %{<video data-autoplay src="video/video.mp4"></video>}
+      end
+    end
+    describe "#blockquote" do
+      it "allows for blockquotes" do
+        slide = Slide.new("Quotes!") do
+          blockquote cite: "http://hostiledeveloper.com", quote: <<-QUOTE
+          Sup
+          QUOTE
+        end
+        slide.compile.include?("blockquote")
+        slide.compile.include?("Sup")
       end
     end
   end

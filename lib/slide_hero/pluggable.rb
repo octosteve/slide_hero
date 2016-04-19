@@ -20,12 +20,12 @@ module SlideHero
     end
 
     def initialization_fields_from_class(klass)
-      fields = ""
+      fields = []
       arguments = klass.instance_method(:initialize).parameters.to_h
       fields << "*args" if arguments.has_key?(:req) || arguments.has_key?(:opt)
-      fields << ", **kwargs" if arguments.has_key?(:key)
-      fields << ", &block" if arguments.has_key?(:block)
-      fields
+      fields << "**kwargs" if arguments.has_key?(:key)
+      fields << "&block" if arguments.has_key?(:block)
+      fields.join(",")
     end
   end
 end
