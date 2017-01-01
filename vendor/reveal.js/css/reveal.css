@@ -532,7 +532,7 @@ body {
 
 	overflow: visible;
 	z-index: 1;
-	text-align: center;
+	text-align: left;
 
 	-webkit-transition: -webkit-perspective .4s ease;
 	   -moz-transition: -moz-perspective .4s ease;
@@ -1219,7 +1219,7 @@ body {
 	top: 0;
 	left: 50%;
 	margin: 0;
-	text-align: center;
+	text-align: left;
 }
 
 .no-transforms .reveal .controls,
